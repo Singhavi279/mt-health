@@ -45,6 +45,7 @@
     var confirmBtn = box.querySelector(".otp-confirm");
     var flag = box.querySelector("input[name=mobile_verified]");
     var note = box.querySelector(".otp-note");
+    var changeBtn = box.querySelector(".otp-change");
     var verified = false, timer = null;
 
     function say(msg, ok) { note.textContent = msg; note.className = "otp-note" + (ok ? " is-ok" : ""); }
@@ -52,6 +53,7 @@
       verified = false; flag.value = "no";
       mobile.readOnly = false; sendBtn.disabled = false; sendBtn.textContent = "Send OTP";
       verifyRow.hidden = true; otpInput.value = "";
+      if (changeBtn) changeBtn.hidden = true;
       clearInterval(timer);
     }
     function cooldown(sec) {
@@ -64,6 +66,8 @@
       }, 1000);
       sendBtn.textContent = "Resend in " + sec + "s";
     }
+
+    if (changeBtn) changeBtn.addEventListener("click", function () { reset(); say(""); mobile.focus(); });
 
     mobile.addEventListener("input", function () {
       mobile.value = mobile.value.replace(/\D/g, "").slice(0, 10);
@@ -91,6 +95,7 @@
         verified = true; flag.value = "yes"; mobile.readOnly = true;
         verifyRow.hidden = true; clearInterval(timer);
         sendBtn.disabled = true; sendBtn.textContent = "Verified ✓";
+        if (changeBtn) changeBtn.hidden = false;
         say("Mobile number verified.", true);
       }).catch(function () {
         say("Incorrect or expired OTP. Please try again.");
@@ -559,4 +564,35 @@
       if (count) { count.textContent = total + " award categories across " + segs.length + " segments"; count.hidden = false; }
     })
     .catch(function () { list.hidden = true; });
+})();
+
+// Simple pop-ups: any [data-open-dialog="id"] button opens <dialog id data-simple>.
+(function () {
+  "use strict";
+  var triggers = document.querySelectorAll("[data-open-dialog]");
+  if (!triggers.length) return;
+
+  function lock(on) { document.documentElement.classList.toggle("modal-open", on); }
+  function open(d) {
+    if (typeof d.showModal === "function") d.showModal(); else d.setAttribute("open", "");
+    lock(true);
+  }
+  function close(d) {
+    if (typeof d.close === "function") d.close(); else d.removeAttribute("open");
+    lock(false);
+  }
+
+  Array.prototype.forEach.call(triggers, function (t) {
+    var d = document.getElementById(t.getAttribute("data-open-dialog"));
+    if (!d) return;
+    t.addEventListener("click", function () { open(d); });
+    if (d.hasAttribute("data-bound")) return;
+    d.setAttribute("data-bound", "");
+    d.addEventListener("close", function () { lock(false); });
+    d.addEventListener("click", function (e) {
+      if (e.target.closest("[data-close]")) return close(d);
+      var r = d.getBoundingClientRect();
+      if (e.target === d && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)) close(d);
+    });
+  });
 })();

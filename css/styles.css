@@ -634,7 +634,7 @@ html.modal-open{overflow:hidden}
 /* Summit hero: open, card-free layout on a light brand backdrop (logo, credit, CTAs, date, venue) */
 .hero-lite{position:relative;overflow:hidden;background:radial-gradient(ellipse 60% 50% at 85% 0,rgba(242,193,78,.35),transparent 70%),radial-gradient(ellipse 55% 50% at 8% 100%,rgba(82,184,58,.2),transparent 70%),linear-gradient(180deg,#e6f2fb 0%,#f8fbfd 60%,#fdf3de 100%);padding:clamp(40px,7vw,88px) 0 clamp(48px,8vw,96px)}
 .hero-lite-in{display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--sp-5)}
-.hero-lite-logo{width:min(80vw,520px);height:auto;filter:drop-shadow(0 10px 24px rgba(20,40,79,.14))}
+.hero-lite-logo{width:min(80vw,480px);height:auto;filter:drop-shadow(0 10px 24px rgba(20,40,79,.14))}
 .hero-lite-credit{display:flex;align-items:center;gap:var(--sp-3);color:var(--c-ink-soft)}
 .hero-lite-credit span{font:700 .75rem var(--font-heading);letter-spacing:.14em;text-transform:uppercase}
 .hero-lite-credit img{height:44px;width:auto}
@@ -651,3 +651,12 @@ html.modal-open{overflow:hidden}
 .hero-lite-awards{background:radial-gradient(ellipse 60% 50% at 85% 0,rgba(242,193,78,.45),transparent 70%),radial-gradient(ellipse 55% 50% at 8% 100%,rgba(229,132,42,.18),transparent 70%),linear-gradient(180deg,#eaf3fa 0%,#fbf8f1 60%,#fdecc8 100%)}
 .nom-form .field{align-content:start}
 .field .msel-opt{font:600 .92rem/1.35 var(--font-body);letter-spacing:0}
+
+/* Partner micro page: partnership enquiry pop-up (reuses the nomination dialog chrome) */
+.pdlg-body{padding:var(--sp-4) var(--sp-5) var(--sp-5)}
+.pform-help{margin:var(--sp-4) 0 0;font-size:.95rem;color:var(--c-ink-soft)}
+.pform-help a{font-weight:700;color:var(--c-navy-700);text-decoration:underline}
+.pdlg-body textarea{min-height:96px;resize:vertical}
+@media (max-width:559px){.pdlg-body{padding-inline:var(--sp-4)}}
+.otp-change{justify-self:start;padding:0;background:none;border:0;font:700 .85rem var(--font-heading);color:var(--c-navy-700);text-decoration:underline;cursor:pointer}
+.otp-change[hidden]{display:none}
