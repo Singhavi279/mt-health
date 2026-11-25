@@ -1,787 +1,459 @@
 <!doctype html>
-<html lang="en-IN">
+<!-- Maharashtra Times Swasthya Sangam 2027: Summit page. Plain HTML/CSS/JS, no build step.
+     Event date: 30 Jan 2027 is the single source of truth. Every date on this page is <time datetime="2027-01-30">.
+
+     HANDOFF MARKERS (search the repo for these):
+       TODO(backend)   forms post here; categories/prices API config lives in js/site.js SS_CONFIG
+       TODO(payment)   no payment on this page (awards page: Pay Now / Pay Later step)
+       TODO(analytics) GA4 snippet + data-track events
+       TODO(content)   every photograph is a stand-in; domain, canonical, og:url and venue are not final -->
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Swasthya Sangam 2026 | Maharashtra Times Health Summit &amp; Awards, Mumbai</title>
-  <meta name="description" content="Maharashtra Times Swasthya Sangam 2026 brings together hospitals, doctors, pharma, MedTech and wellness leaders in Mumbai for a Summit, Expo, Masterclass and Awards. Nominate or register now.">
-  <meta name="keywords" content="Swasthya Sangam 2026,Maharashtra Times health summit,healthcare summit Mumbai,health awards Maharashtra,healthcare conference Mumbai January 2027,healthcare expo Mumbai,healthcare event Pune,health summit Pune,Mumbai healthcare awards,hospital awards Maharashtra,doctors conference Maharashtra,MedTech HealthTech summit India,pharma life sciences event Mumbai,wellness summit Maharashtra,AYUSH integrative health event,Navi Mumbai,Thane,Pune,Pimpri-Chinchwad,Nashik,Nagpur,Kolhapur,Aurangabad Chhatrapati Sambhajinagar,Mumbai Metropolitan Region,Maharashtra healthcare leaders,Times Internet Languages Live,महाराष्ट्र टाइम्स स्वास्थ्य संगम,आरोग्य परिषद मुंबई,आरोग्य पुरस्कार महाराष्ट्र">
-  <meta name="application-name" content="Maharashtra Times Swasthya Sangam 2026">
-  <meta name="author" content="Maharashtra Times, Times Internet Languages Live">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <meta name="theme-color" content="#1b3f8f">
-  <meta name="geo.region" content="IN-MH">
-  <meta name="geo.placename" content="Mumbai, Maharashtra">
-  <meta name="geo.position" content="19.0760;72.8777">
-  <meta name="ICBM" content="19.0760, 72.8777">
-  <meta name="audience" content="Healthcare professionals, hospital administrators, doctors, pharma, MedTech and wellness leaders in Mumbai, Pune and Maharashtra">
-  <link rel="canonical" href="https://singhavi279.github.io/mh-health/">
-  <link rel="alternate" hreflang="en-IN" href="https://singhavi279.github.io/mh-health/">
-  <link rel="alternate" type="text/plain" href="https://singhavi279.github.io/mh-health/llms.txt" title="LLM-readable summary">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Swasthya Sangam 2027: Health Summit and Awards in Mumbai</title>
+<meta name="description" content="Maharashtra Times Swasthya Sangam: a one-day health summit, expo, masterclasses and awards in Mumbai on 30 Jan 2027. Register to attend or nominate.">
+<link rel="canonical" href="https://singhavi279.github.io/mt-health/">
+<meta property="og:url" content="https://singhavi279.github.io/mt-health/">
+<!-- TODO(content): if the site moves to its own domain (e.g. timeslanguages.in), update canonical, og:url, og:image, the JSON-LD urls, sitemap.xml, robots.txt and llms.txt -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maharashtra Times Swasthya Sangam">
+<meta property="og:locale" content="en_IN">
+<meta property="og:title" content="Swasthya Sangam 2027: Health Summit and Awards in Mumbai">
+<meta property="og:description" content="One day in Mumbai on 30 Jan 2027: summit, masterclasses, expo and awards for Maharashtra's health community. Register to attend.">
+<meta property="og:image" content="https://singhavi279.github.io/mt-health/img/share.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Maharashtra Times Swasthya Sangam 2027 logo: Wellness and Healthcare Summit and Awards">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f9f8">
 
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_IN">
-  <meta property="og:site_name" content="Maharashtra Times Swasthya Sangam 2026">
-  <meta property="og:title" content="Swasthya Sangam 2026 | Maharashtra Times Health Summit &amp; Awards, Mumbai">
-  <meta property="og:description" content="Maharashtra Times Swasthya Sangam 2026 brings together hospitals, doctors, pharma, MedTech and wellness leaders in Mumbai for a Summit, Expo, Masterclass and Awards. Nominate or register now.">
-  <meta property="og:url" content="https://singhavi279.github.io/mh-health/">
-  <meta property="og:image" content="https://singhavi279.github.io/mh-health/assets/img/og-logo.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Swasthya Sangam 2026 | Maharashtra Times Health Summit &amp; Awards, Mumbai">
-  <meta name="twitter:description" content="Maharashtra Times Swasthya Sangam 2026 brings together hospitals, doctors, pharma, MedTech and wellness leaders in Mumbai for a Summit, Expo, Masterclass and Awards. Nominate or register now.">
-  <meta name="twitter:image" content="https://singhavi279.github.io/mh-health/assets/img/og-logo.jpg">
+<!-- TODO(analytics): GA4 snippet goes here (async, after the consent decision if one is required). No tracking is loaded in the MVP. -->
 
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://static.langimg.com" crossorigin>
-  <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/mukta-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/img/logo-event-480.webp" fetchpriority="high">
-  <link rel="dns-prefetch" href="https://api.indiatimes.com">
-  <link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__ssReady)document.documentElement.classList.add('no-reveal')},3000)</script>
+<link rel="preload" href="fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/event-logo.webp" fetchpriority="high">
+<link rel="preconnect" href="https://timeslanguages.in">
+<link rel="stylesheet" href="css/site.css">
+<script type="module" src="js/site.js"></script>
 
-  <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Event",
-      "@id": "https://singhavi279.github.io/mh-health/#event",
-      "name": "Maharashtra Times Swasthya Sangam 2026",
-      "alternateName": [
-        "Swasthya Sangam 2026",
-        "Maharashtra Times Health Summit & Awards",
-        "#SwasthyaSangam2026"
-      ],
-      "description": "Maharashtra Times Swasthya Sangam 2026 brings together hospitals, doctors, pharma, MedTech and wellness leaders in Mumbai for a Summit, Expo, Masterclass and Awards. Nominate or register now.",
-      "startDate": "2027-01",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "inLanguage": [
-        "en-IN",
-        "mr-IN",
-        "hi-IN"
-      ],
-      "url": "https://singhavi279.github.io/mh-health",
-      "image": "https://singhavi279.github.io/mh-health/assets/img/og-logo.jpg",
-      "location": {
-        "@type": "Place",
-        "name": "Mumbai",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Mumbai",
-          "addressRegion": "Maharashtra",
-          "addressCountry": "IN"
-        }
-      },
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Healthcare professionals and decision-makers",
-        "geographicArea": [
-          {
-            "@type": "City",
-            "name": "Mumbai"
-          },
-          {
-            "@type": "City",
-            "name": "Pune"
-          },
-          {
-            "@type": "City",
-            "name": "Thane"
-          },
-          {
-            "@type": "City",
-            "name": "Navi Mumbai"
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Maharashtra"
-          }
-        ]
-      },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Hospitals & Healthcare Providers"
-        },
-        {
-          "@type": "Thing",
-          "name": "Pharma & Life Sciences"
-        },
-        {
-          "@type": "Thing",
-          "name": "Doctors & Specialists"
-        },
-        {
-          "@type": "Thing",
-          "name": "Diagnostics & Preventive Care"
-        },
-        {
-          "@type": "Thing",
-          "name": "MedTech & HealthTech"
-        },
-        {
-          "@type": "Thing",
-          "name": "Wellness & Fitness"
-        },
-        {
-          "@type": "Thing",
-          "name": "Nutrition & Lifestyle"
-        },
-        {
-          "@type": "Thing",
-          "name": "Mental Health & Holistic Wellbeing"
-        },
-        {
-          "@type": "Thing",
-          "name": "Health Insurance & Financial Wellness"
-        },
-        {
-          "@type": "Thing",
-          "name": "AYUSH & Integrative Health"
-        }
-      ],
-      "organizer": {
-        "@id": "https://singhavi279.github.io/mh-health/#org-mt"
-      },
-      "sponsor": [
-        {
-          "@id": "https://singhavi279.github.io/mh-health/#org-mt"
-        },
-        {
-          "@id": "https://singhavi279.github.io/mh-health/#org-til"
-        }
-      ],
-      "isAccessibleForFree": false
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://singhavi279.github.io/mh-health/#org-mt",
-      "name": "Maharashtra Times",
-      "parentOrganization": {
-        "@id": "https://singhavi279.github.io/mh-health/#org-til"
-      },
-      "logo": "https://singhavi279.github.io/mh-health/assets/img/maharashtra-times.png"
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://singhavi279.github.io/mh-health/#org-til",
-      "name": "Times Internet Limited",
-      "brand": {
-        "@type": "Brand",
-        "name": "Times Internet Languages Live",
-        "logo": "https://singhavi279.github.io/mh-health/assets/img/langlive-170.webp"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://singhavi279.github.io/mh-health/#website",
-      "url": "https://singhavi279.github.io/mh-health",
-      "name": "Maharashtra Times Swasthya Sangam 2026",
-      "inLanguage": "en-IN",
-      "publisher": {
-        "@id": "https://singhavi279.github.io/mh-health/#org-til"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://singhavi279.github.io/mh-health/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is Swasthya Sangam?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A health summit, expo, masterclass and awards event by Maharashtra Times in Mumbai."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Who can nominate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Any hospital, doctor, brand or organisation that meets the eligibility rules."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is there a fee to nominate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Nomination plans and fees are listed on the Awards page, along with what each plan includes."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I attend without a nomination?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Anyone can register to attend."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How are winners picked?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "An independent jury scores each nomination."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I book an Expo stall?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Use the Talk to Our Team button in the Partner With Us section to call our partnerships team, or write to the sponsorship team listed under Contact."
-          }
-        }
-      ]
-    }
+  "@type": "Event",
+  "name": "Maharashtra Times Swasthya Sangam 2027",
+  "url": "https://singhavi279.github.io/mt-health/",
+  "description": "A one-day health summit, expo, masterclasses and awards in Mumbai bringing together hospitals, doctors, pharma, MedTech and wellness leaders, organised by Maharashtra Times and Times Internet Languages Live.",
+  "startDate": "2027-01-30",
+  "endDate": "2027-01-30",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "inLanguage": "en",
+  "location": {
+    "@type": "Place",
+    "name": "Venue to be announced",
+    "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "addressCountry": "IN" }
+  },
+  "organizer": [
+    { "@type": "Organization", "name": "Maharashtra Times" },
+    { "@type": "Organization", "name": "Times Internet Languages Live", "url": "https://timeslanguages.in/" }
+  ],
+  "offers": [
+    { "@type": "Offer", "name": "Basic pass", "price": "1499", "priceCurrency": "INR", "url": "https://singhavi279.github.io/mt-health/#register", "description": "Session access. Lunch and networking arena access are not included." },
+    { "@type": "Offer", "name": "Premium pass", "price": "1999", "priceCurrency": "INR", "url": "https://singhavi279.github.io/mt-health/#register", "description": "Session access, lunch and networking arena access." }
+  ],
+  "image": "https://singhavi279.github.io/mt-health/img/share.jpg"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is Swasthya Sangam?", "acceptedAnswer": { "@type": "Answer", "text": "A health summit, expo, masterclass and awards event by Maharashtra Times in Mumbai on 30 Jan 2027." } },
+    { "@type": "Question", "name": "What is the difference between the Basic and Premium pass?", "acceptedAnswer": { "@type": "Answer", "text": "The Basic pass (₹1,499) gives session access only. The Premium pass (₹1,999) adds lunch and access to the networking arena." } },
+    { "@type": "Question", "name": "Can I attend without a nomination?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Anyone can register to attend." } },
+    { "@type": "Question", "name": "Who can nominate?", "acceptedAnswer": { "@type": "Answer", "text": "Any hospital, doctor, brand or organisation that meets the eligibility rules." } },
+    { "@type": "Question", "name": "Is there a fee to nominate?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Nomination plans and fees are listed on the Awards page, along with what each plan includes." } },
+    { "@type": "Question", "name": "How are winners picked?", "acceptedAnswer": { "@type": "Answer", "text": "An independent jury scores each nomination." } },
+    { "@type": "Question", "name": "How do I book an Expo stall?", "acceptedAnswer": { "@type": "Answer", "text": "Send the partnership enquiry on this page, or call Deepika Pawar on +91 9971129087." } }
   ]
 }
-  </script>
+</script>
 </head>
-<body data-form-endpoint="" data-otp-send-endpoint="" data-otp-verify-endpoint="">
+<body>
+<a class="skip" href="#top">Skip to content</a>
 
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="topbar">
-<div class="container topbar-in">
-<a class="brand" href="index.html" aria-label="Maharashtra Times Swasthya Sangam 2026 home">
-<img src="https://static.langimg.com/photo/133317512.cms" alt="Times Internet Languages Live" width="4647" height="1341"/>
-<span class="brand-sep" aria-hidden="true">|</span>
-<img src="assets/img/maharashtra-times.png" alt="Maharashtra Times" width="597" height="123"/>
-</a>
-
-<nav class="nav-desktop" aria-label="Primary">
-<a class="btn btn-ghost btn-sm nav-all" href="https://timeslanguages.in/" target="_blank" rel="noopener">All Events</a>
-<a href="#speakers">Speakers</a>
-<a href="#agenda">Agenda</a>
-<a href="#partner">Partners</a>
-<a href="#contact">Contact</a>
-</nav>
-<div class="topbar-cta">
-<a class="btn btn-ghost btn-sm hide-sm" href="index.html" aria-current="page">Summit</a>
-<a class="btn btn-gold btn-sm" href="awards.html">Awards</a>
-<a class="btn btn-primary btn-sm hide-sm" href="#register">Register</a>
-</div>
-<details class="menu">
-<summary aria-label="Open menu">
-<span></span>
-<span></span>
-<span></span>
-</summary>
-
-<nav aria-label="Mobile">
-<a href="https://timeslanguages.in/" target="_blank" rel="noopener">All Events</a>
-<a href="index.html" aria-current="page">Summit</a>
-<a href="awards.html">Awards</a>
-<a href="#speakers">Speakers</a>
-<a href="#agenda">Agenda</a>
-<a href="#partner">Partners</a>
-<a href="#contact">Contact</a>
-<a class="btn btn-primary" href="#register">Register</a>
-</nav>
-</details>
-</div>
+<header class="site-header" data-header>
+  <div class="wrap bar">
+    <!-- Mandatory logo (README): loaded straight from timeslanguages.in as the brief says. onerror swaps in a small local
+         copy only if timeslanguages.in is unreachable (it returned 502 during the build). Remove the onerror to hot-link only. -->
+    <a class="brand" href="https://timeslanguages.in/" aria-label="Times Internet Languages Live, all events">
+      <img src="https://timeslanguages.in/assets/timeslang/assets/langlive.png" onerror="this.onerror=null;this.src='img/langlive-fallback.webp'" width="517" height="323" alt="Times Internet Languages Live" fetchpriority="low" decoding="async">
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Summit</a>
+      <a href="awards.html">Awards</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#partner">Partners</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn--primary bar__cta" href="#register" data-track="register_nav">Register to attend</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span></button>
+  </div>
+  <div class="progress" aria-hidden="true"><i></i></div>
 </header>
 
-<main id="main">
+<main id="top">
 
-<section class="hero-lite" aria-labelledby="page-title">
-<div class="container hero-lite-in">
-<h1 id="page-title" class="sr-only">Maharashtra Times Swasthya Sangam 2026: The Health Summit</h1>
-<img class="hero-lite-logo" src="assets/img/logo-event-480.webp" alt="Maharashtra Times Swasthya Sangam 2027: Wellness &amp; Healthcare Summit &amp; Awards" width="480" height="285" decoding="async" fetchpriority="high"/>
-<div class="hero-lite-credit">
-<span>An initiative by:</span>
-<img src="assets/img/langlive-170.webp" alt="Times Internet Languages Live" width="170" height="106"/>
-</div>
-<div class="hero-lite-cta">
-<a class="btn btn-gold" href="#register">Register to Attend <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-<a class="btn btn-ghost" href="#agenda">Explore Agenda</a>
-</div>
-<dl class="hero-lite-facts" aria-label="Date and venue">
-<div><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg><span><dt>Date</dt><dd>Jan 2027</dd></span></div>
-<div><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span><dt>Venue</dt><dd>Mumbai</dd></span></div>
-</dl>
-</div>
-</section>
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="kicker rise" style="--i:0">Health summit and awards in Mumbai</p>
+        <h1 id="hero-h" class="rise" style="--i:1">Maharashtra Times Swasthya Sangam</h1>
+        <p class="lead rise" style="--i:2">Hospitals, doctors, pharma, MedTech and wellness leaders meet for a Summit, Masterclasses, Expo and Awards on <time datetime="2027-01-30">30 Jan 2027</time>.</p>
+        <div class="btn-row rise" style="--i:3">
+          <a class="btn btn--primary" href="#register" data-track="register_hero">Register to attend<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--ghost" href="#agenda" data-track="agenda_hero">See the agenda</a>
+        </div>
+      </div>
+      <!-- the event logo is the hero picture: the brand's own asset. Source: https://static.langimg.com/photo/135920940.cms (480px wide; self-hosted as WebP.
+           TODO(content): a larger original would stay sharp on 2x screens and in the share image) -->
+      <div class="hero__card rise" style="--i:2">
+        <img src="img/event-logo.webp" width="480" height="285" alt="Swasthya Sangam 2027 by Maharashtra Times: Wellness and Healthcare Summit and Awards" fetchpriority="high" decoding="async">
+        <div class="chip-float chip-float--b"><span>Passes from</span><b>&#8377;1,499</b></div>
+        <div class="chip-float chip-float--a"><span>Save the date</span><b><time datetime="2027-01-30">30 Jan 2027</time>, Mumbai</b></div>
+      </div>
+    </div>
+  </section>
 
-<section class="section editorial" id="about" aria-labelledby="about-h">
-<div class="container">
-<div class="ed-grid">
-<aside class="ed-side">
-<p class="eyebrow">About Swasthya Sangam</p>
-<img class="ed-mark" src="assets/img/maharashtra-times.png" alt="Maharashtra Times" width="597" height="123" loading="lazy"/>
-<p class="ed-meta">Swasthya Sangam 2026<br/>January 2027 &middot; Mumbai</p>
-</aside>
-<div class="ed-main">
-<h2 id="about-h">Why we are bringing Maharashtra&#x27;s health community into one room</h2>
-<blockquote class="ed-pull">
-<p>Good health is built by many hands. Swasthya Sangam is where they finally meet.</p>
-</blockquote>
-<p>The doctors who treat, the hospitals that build, the companies that innovate, the officials who enable and the families who depend on all of them rarely share a stage. Maharashtra Times created Swasthya Sangam to change that: one day in Mumbai, with the Summit, Masterclasses, Expo and Awards under one roof.</p>
-<p>Every session is shaped by five ideas: People, Innovation, Access, Prevention and Impact. The aim is simple. Fewer speeches about healthcare, more answers someone can use on Monday morning.</p>
-<p>We also want to celebrate the work that rarely makes the front page. Through the Swasthya Sangam Awards, we recognise the hospitals, doctors and health brands getting it right. If you know one, we want to hear about it.</p>
-</div>
-</div>
-</div>
-</section>
-<section class="section alt" id="themes" aria-labelledby="themes-h">
-<div class="container">
+  <div class="ticker" role="group" aria-label="Event highlights">
+    <div class="ticker__track">
+      <ul>
+        <li><time datetime="2027-01-30">30 Jan 2027</time></li><li>Mumbai</li><li>Summit</li><li>Masterclasses</li><li>Expo</li><li>Awards ceremony</li>
+        <li aria-hidden="true">30 Jan 2027</li><li aria-hidden="true">Mumbai</li><li aria-hidden="true">Summit</li><li aria-hidden="true">Masterclasses</li><li aria-hidden="true">Expo</li><li aria-hidden="true">Awards ceremony</li>
+      </ul>
+      <ul aria-hidden="true">
+        <li>30 Jan 2027</li><li>Mumbai</li><li>Summit</li><li>Masterclasses</li><li>Expo</li><li>Awards ceremony</li>
+        <li>30 Jan 2027</li><li>Mumbai</li><li>Summit</li><li>Masterclasses</li><li>Expo</li><li>Awards ceremony</li>
+      </ul>
+    </div>
+    <button class="ticker__pause" type="button" aria-pressed="false" aria-label="Pause scrolling text">Pause</button>
+  </div>
 
-<header class="sec-head">
-<p class="eyebrow">Five themes</p>
-<h2 id="themes-h">Ideas that guide every session</h2>
-</header>
-<ol class="themes">
-<li>
-<span class="num">1</span>
-<h3>People</h3>
-<p>Putting patients, families and caregivers first</p>
-</li>
-<li>
-<span class="num">2</span>
-<h3>Innovation</h3>
-<p>New tools, technology and treatment models</p>
-</li>
-<li>
-<span class="num">3</span>
-<h3>Access</h3>
-<p>Quality care for every district, not just big cities</p>
-</li>
-<li>
-<span class="num">4</span>
-<h3>Prevention</h3>
-<p>Early detection, healthy habits and lifestyle change</p>
-</li>
-<li>
-<span class="num">5</span>
-<h3>Impact</h3>
-<p>Results that can be measured and shared</p>
-</li>
-</ol>
-</div>
-</section>
-<section class="section" id="attend" aria-labelledby="attend-h">
-<div class="container narrow">
+  <section class="band band--white" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow reveal">About Swasthya Sangam</p>
+          <h2 id="about-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">One room for Maharashtra's health community</h2>
+          <p class="lead muted reveal" style="--i:2">The doctors who treat, the hospitals that build, the companies that innovate and the officials who enable rarely share a stage. Maharashtra Times created Swasthya Sangam to change that: one day in Mumbai with the Summit, Masterclasses, Expo and Awards under one roof.</p>
+          <p class="quote reveal" style="--i:3">Good health is built by many hands. Swasthya Sangam is where they finally meet.</p>
+        </div>
+        <!-- TODO(content): stand-in photograph (Pexels, free licence). Replace with a photograph from a past Maharashtra Times event. -->
+        <figure class="photo photo--tall reveal" style="--i:2"><img src="img/about-audience-1000.webp" srcset="img/about-audience-560.webp 560w, img/about-audience-1000.webp 1196w" sizes="(min-width: 900px) 560px, 100vw" width="1196" height="1068" alt="A full auditorium listening to a speaker on stage" loading="lazy" decoding="async" data-source="stand-in" data-subject="conference audience"></figure>
+      </div>
+      <ul class="stats" data-stagger>
+        <li><b data-count="1">1</b><span>day in Mumbai</span></li>
+        <li><b data-count="4">4</b><span>experiences under one roof</span></li>
+        <li><b data-count="5">5</b><span>themes shape every session</span></li>
+        <li hidden><b data-count="0" data-count-api="categories">0</b><span>award categories</span></li>
+      </ul>
+    </div>
+  </section>
 
-<header class="sec-head">
-<h2 id="attend-h">Who should attend</h2>
-</header>
-<ul class="checks">
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-<path d="M20 6 9 17l-5-5">
-</path>
-</svg>Hospital owners and administrators</li>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-<path d="M20 6 9 17l-5-5">
-</path>
-</svg>Doctors and specialists</li>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-<path d="M20 6 9 17l-5-5">
-</path>
-</svg>Pharma and life sciences leaders</li>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-<path d="M20 6 9 17l-5-5">
-</path>
-</svg>Diagnostics and lab heads</li>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-<path d="M20 6 9 17l-5-5">
-</path>
-</svg>MedTech and HealthTech founders</li>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-<path d="M20 6 9 17l-5-5">
-</path>
-</svg>Wellness, fitness and nutrition brands</li>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-<path d="M20 6 9 17l-5-5">
-</path>
-</svg>Mental health experts</li>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-<path d="M20 6 9 17l-5-5">
-</path>
-</svg>Insurance and TPA leaders</li>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-<path d="M20 6 9 17l-5-5">
-</path>
-</svg>AYUSH practitioners</li>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-<path d="M20 6 9 17l-5-5">
-</path>
-</svg>Government and health officials</li>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-<path d="M20 6 9 17l-5-5">
-</path>
-</svg>Investors</li>
-<li>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-<path d="M20 6 9 17l-5-5">
-</path>
-</svg>Medical students and young professionals</li>
-</ul>
-</div>
-</section>
-<section class="section awards-teaser" id="awards-teaser" aria-labelledby="at-h">
-<div class="container">
-<div class="at-grid">
-<div class="at-copy">
-<p class="eyebrow">Swasthya Sangam Awards</p>
-<h2 id="at-h">Know someone who deserves to be seen?</h2>
-<p class="lead">Nominations are open for hospitals, doctors and health brands across Maharashtra.</p>
-<p class="at-count" id="at-count" hidden></p>
-<div class="hero-cta">
-<a class="btn btn-gold" href="awards.html#nominate">Nominate now</a>
-<a class="btn btn-ghost-light" href="awards.html#sectors">See all categories</a>
-</div>
-</div>
-<ul class="at-segments" id="at-segments" aria-label="Award segments">
-<li class="soon-slot"><span class="sk sk-line w70" aria-hidden="true"></span></li>
-<li class="soon-slot"><span class="sk sk-line w55" aria-hidden="true"></span></li>
-<li class="soon-slot"><span class="sk sk-line w80" aria-hidden="true"></span></li>
-<li class="soon-slot"><span class="sk sk-line w60" aria-hidden="true"></span></li>
-</ul>
-</div>
-</div>
-</section>
-<section class="section alt" id="speakers" aria-labelledby="speakers-h">
-<div class="container">
+  <section class="band band--teal band--wave" id="themes" aria-labelledby="themes-h">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="eyebrow">Five themes</p>
+        <h2 id="themes-h">Ideas that guide every session</h2>
+        <p>Fewer speeches about healthcare, more answers someone can use on Monday morning.</p>
+      </div>
+      <ul class="themes" data-stagger>
+        <li class="theme"><h3>People</h3><p>Putting patients, families and caregivers first.</p></li>
+        <li class="theme"><h3>Innovation</h3><p>New tools, technology and treatment models.</p></li>
+        <li class="theme"><h3>Access</h3><p>Quality care for every district, not just big cities.</p></li>
+        <li class="theme"><h3>Prevention</h3><p>Early detection, healthy habits and lifestyle change.</p></li>
+        <li class="theme"><h3>Impact</h3><p>Results that can be measured and shared.</p></li>
+      </ul>
+    </div>
+  </section>
 
-<header class="sec-head">
-<p class="eyebrow">Speakers</p>
-<h2 id="speakers-h">Voices Shaping a Healthier Maharashtra</h2>
-<p class="lead">Doctors, policymakers and industry leaders sharing what works.</p>
-</header>
-<ul class="speakers speakers-soon" aria-label="Speaker lineup coming soon">
-<li>
-<span class="avatar" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
-<span class="sk sk-line w70" aria-hidden="true"></span>
-<span class="sk sk-line w45" aria-hidden="true"></span>
-<span class="soon-pill">Coming soon</span>
-<span class="sr-only">Speaker to be announced</span>
-</li>
-<li>
-<span class="avatar" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
-<span class="sk sk-line w70" aria-hidden="true"></span>
-<span class="sk sk-line w45" aria-hidden="true"></span>
-<span class="soon-pill">Coming soon</span>
-<span class="sr-only">Speaker to be announced</span>
-</li>
-<li>
-<span class="avatar" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
-<span class="sk sk-line w70" aria-hidden="true"></span>
-<span class="sk sk-line w45" aria-hidden="true"></span>
-<span class="soon-pill">Coming soon</span>
-<span class="sr-only">Speaker to be announced</span>
-</li>
-<li>
-<span class="avatar" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
-<span class="sk sk-line w70" aria-hidden="true"></span>
-<span class="sk sk-line w45" aria-hidden="true"></span>
-<span class="soon-pill">Coming soon</span>
-<span class="sr-only">Speaker to be announced</span>
-</li>
-</ul>
-<p class="soon-note">We are confirming the lineup. <a href="#register">Register</a> to hear the first names.</p>
-</div>
-</section>
-<section class="section" id="agenda" aria-labelledby="agenda-h">
-<div class="container narrow">
+  <section class="band band--tint" id="agenda" aria-labelledby="agenda-h">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="eyebrow">Agenda</p>
+        <h2 id="agenda-h">One day, four experiences</h2>
+        <p><time datetime="2027-01-30">30 Jan 2027</time>, Mumbai. Session timings will be published here.</p>
+      </div>
+      <div class="cards4" data-stagger>
+        <!-- TODO(content): the four photographs below are stand-ins (Pexels, Unsplash). Replace with photographs from the real venue and past events. -->
+        <article class="xcard">
+          <figure class="photo"><img src="img/agenda-summit-1000.webp" srcset="img/agenda-summit-560.webp 560w, img/agenda-summit-1000.webp 1000w" sizes="(min-width: 1100px) 280px, (min-width: 640px) 45vw, 100vw" alt="An audience watching a speaker present on a lit stage" width="1000" height="667" loading="lazy" decoding="async" data-source="stand-in" data-subject="conference stage"></figure>
+          <div class="xcard__body"><span class="xcard__n" aria-hidden="true">1</span><h3>Summit</h3><p>Doctors, policymakers and industry leaders share what works across the five themes.</p></div>
+        </article>
+        <article class="xcard">
+          <figure class="photo"><img src="img/agenda-masterclass-1000.webp" srcset="img/agenda-masterclass-560.webp 560w, img/agenda-masterclass-1000.webp 1000w" sizes="(min-width: 1100px) 280px, (min-width: 640px) 45vw, 100vw" alt="An instructor in a white coat teaching medical students with a training model" width="1000" height="667" loading="lazy" decoding="async" data-source="stand-in" data-subject="medical training"></figure>
+          <div class="xcard__body"><span class="xcard__n" aria-hidden="true">2</span><h3>Masterclasses</h3><p>Hands-on sessions that give you answers to use at work the next day.</p></div>
+        </article>
+        <article class="xcard">
+          <figure class="photo"><img src="img/agenda-expo-1000.webp" srcset="img/agenda-expo-560.webp 560w, img/agenda-expo-1000.webp 1000w" sizes="(min-width: 1100px) 280px, (min-width: 640px) 45vw, 100vw" alt="Visitors walking between stands in a large exhibition hall" width="1000" height="667" loading="lazy" decoding="async" data-source="stand-in" data-subject="exhibition hall"></figure>
+          <div class="xcard__body"><span class="xcard__n" aria-hidden="true">3</span><h3>Expo</h3><p>Hospitals, pharma, MedTech and wellness brands on one floor. Stalls are open for booking.</p></div>
+        </article>
+        <article class="xcard">
+          <figure class="photo"><img src="img/agenda-awards-1000.webp" srcset="img/agenda-awards-560.webp 560w, img/agenda-awards-1000.webp 1000w" sizes="(min-width: 1100px) 280px, (min-width: 640px) 45vw, 100vw" alt="Gold trophies lined up on a table" width="1000" height="667" loading="lazy" decoding="async" data-source="stand-in" data-subject="award trophies"></figure>
+          <div class="xcard__body"><span class="xcard__n" aria-hidden="true">4</span><h3>Awards ceremony</h3><p>Winners of the Swasthya Sangam Awards are recognised in front of the whole community.</p></div>
+        </article>
+      </div>
+      <p id="speakers" class="note reveal"><b>Speakers are being confirmed.</b> <span>Register to hear the first names.</span> <a class="link" href="#register" data-track="register_agenda">Register to attend</a></p>
+    </div>
+  </section>
 
-<header class="sec-head">
-<p class="eyebrow">Agenda</p>
-<h2 id="agenda-h">One Day. Four Experiences.</h2>
-<p class="lead">Save the date: January 2027, Mumbai. Session timings will be published here.</p>
-</header>
-<ol class="agenda-soon" aria-label="Agenda tracks, schedule coming soon">
-<li style="--t:#1f6fd0">
-<span class="ag-dot" aria-hidden="true"></span>
-<div class="ag-body">
-<h3>Summit</h3>
-<span class="sk sk-line w40" aria-hidden="true"></span>
-<span class="sk sk-line w80" aria-hidden="true"></span>
-</div>
-<span class="soon-pill">Schedule coming soon</span>
-</li>
-<li style="--t:#6a3fc0">
-<span class="ag-dot" aria-hidden="true"></span>
-<div class="ag-body">
-<h3>Masterclasses</h3>
-<span class="sk sk-line w40" aria-hidden="true"></span>
-<span class="sk sk-line w80" aria-hidden="true"></span>
-</div>
-<span class="soon-pill">Schedule coming soon</span>
-</li>
-<li style="--t:#2f9a6a">
-<span class="ag-dot" aria-hidden="true"></span>
-<div class="ag-body">
-<h3>Expo</h3>
-<span class="sk sk-line w40" aria-hidden="true"></span>
-<span class="sk sk-line w80" aria-hidden="true"></span>
-</div>
-<span class="soon-pill">Schedule coming soon</span>
-</li>
-<li style="--t:#d39a2c">
-<span class="ag-dot" aria-hidden="true"></span>
-<div class="ag-body">
-<h3>Awards Ceremony</h3>
-<span class="sk sk-line w40" aria-hidden="true"></span>
-<span class="sk sk-line w80" aria-hidden="true"></span>
-</div>
-<span class="soon-pill">Schedule coming soon</span>
-</li>
-</ol>
-</div>
-</section>
-<section class="section alt" id="register" aria-labelledby="register-h">
-<div class="container narrow">
+  <section class="band band--white" id="attend" aria-labelledby="attend-h">
+    <div class="wrap">
+      <div class="split split--img-left">
+        <div>
+          <p class="eyebrow reveal">Who should attend</p>
+          <h2 id="attend-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Twelve kinds of people the day is built for</h2>
+          <p class="lead muted reveal" style="--i:2; margin-bottom: 1.5rem">Anyone can register to attend. These are the people we expect in the room.</p>
+          <ul class="chips" data-stagger>
+            <li>Hospital owners and administrators</li><li>Doctors and specialists</li><li>Pharma and life sciences leaders</li><li>Diagnostics and lab heads</li>
+            <li>MedTech and HealthTech founders</li><li>Wellness, fitness and nutrition brands</li><li>Mental health experts</li><li>Insurance and TPA leaders</li>
+            <li>AYUSH practitioners</li><li>Government and health officials</li><li>Investors</li><li>Medical students and young professionals</li>
+          </ul>
+          <div class="btn-row reveal"><a class="btn btn--primary" href="#register" data-track="register_attend">Register to attend<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </div>
+        <!-- TODO(content): stand-in photograph (Unsplash). Replace with delegates at a past event. -->
+        <figure class="photo photo--ratio reveal" style="--i:1"><img src="img/attend-doctors-1000.webp" srcset="img/attend-doctors-560.webp 560w, img/attend-doctors-1000.webp 1000w" sizes="(min-width: 900px) 560px, 100vw" width="1000" height="667" alt="Two doctors in white coats reviewing a tablet together" loading="lazy" decoding="async" data-source="stand-in" data-subject="doctors"></figure>
+      </div>
+    </div>
+  </section>
 
-<header class="sec-head">
-<p class="eyebrow">Register to attend</p>
-<h2 id="register-h">Join Maharashtra&#x27;s Health Community</h2>
-<p class="lead">Anyone can register to attend. Register now and be first to hear about tickets, speakers and the agenda.</p>
-<p class="soon-note"><span class="soon-pill">Ticket types coming soon</span></p>
-</header>
-<div class="card">
-<form class="form" aria-label="Register Now">
-<div class="field">
-<label for="registration-name">Name</label>
-<input id="registration-name" type="text" required="" autocomplete="name" name="name"/>
-</div>
-<div class="field">
-<label for="registration-organisation">Organisation</label>
-<input id="registration-organisation" type="text" required="" autocomplete="organization" name="organisation"/>
-</div>
-<div class="field">
-<label for="registration-designation">Designation</label>
-<input id="registration-designation" type="text" required="" autocomplete="organization-title" name="designation"/>
-</div>
-<div class="field">
-<label for="registration-email">Email</label>
-<input id="registration-email" type="email" required="" autocomplete="email" name="email"/>
-</div>
-<div class="field wide otp-field" data-otp>
-<label for="registration-mobile">Mobile (OTP verification)</label>
-<div class="otp-row">
-<input id="registration-mobile" type="tel" inputmode="numeric" required="" autocomplete="tel-national" name="mobile" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10-digit mobile number"/>
-<button class="btn btn-ghost btn-sm otp-send" type="button">Send OTP</button>
-</div>
-<div class="otp-row otp-verify" hidden="">
-<input id="registration-otp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="Enter 6-digit OTP" aria-label="OTP"/>
-<button class="btn btn-primary btn-sm otp-confirm" type="button">Verify</button>
-</div>
-<input type="hidden" name="mobile_verified" value="no"/>
-<p class="otp-note" role="status" aria-live="polite"></p>
-</div>
-<div class="field">
-<label for="registration-city">City</label>
-<input id="registration-city" type="text" required="" autocomplete="address-level2" name="city"/>
-</div>
-<div class="field wide consent">
-<label class="check" for="registration-terms">
-<input id="registration-terms" type="checkbox" name="terms" value="yes" required="" checked=""/>
-<span>I agree to the <a href="https://timeslanguages.in/termsandconditions" target="_blank" rel="noopener">Terms and Conditions</a>, <a href="https://timeslanguages.in/privacypolicy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://timeslanguages.in/cancellationpolicy" target="_blank" rel="noopener">Cancellation Policy</a>.</span>
-</label>
-<label class="check" for="registration-updates">
-<input id="registration-updates" type="checkbox" name="optin_updates" value="yes" required="" checked=""/>
-<span>I agree to receive updates about Swasthya Sangam 2026 on WhatsApp and email.</span>
-</label>
-</div>
-<button class="btn btn-primary" type="submit">Register Now</button>
-<p class="form-note" role="status" aria-live="polite">
-</p>
-</form>
-</div>
-</div>
-</section>
-<section class="section dark" id="partner" aria-labelledby="partner-h">
-<div class="container">
+  <section class="band band--navy band--wave" id="awards" aria-labelledby="awards-h">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow reveal">Swasthya Sangam Awards</p>
+          <h2 id="awards-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Nominate a hospital, doctor or health brand</h2>
+          <p class="lead reveal" style="--i:2; color: var(--muted); margin-bottom: 2rem">Nominations are open for hospitals, doctors and health brands across Maharashtra.</p>
+          <div class="btn-row reveal" style="--i:3">
+            <a class="btn btn--gold" href="awards.html#nominate" data-track="nominate_band">Start a nomination<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--outline-inv" href="awards.html#categories" data-track="categories_band">See award categories</a>
+          </div>
+          <ul class="stats stats--inv stats--3" data-stagger>
+            <li hidden><b data-count="0" data-count-api="segments">0</b><span>segments</span></li>
+            <li hidden><b data-count="0" data-count-api="categories">0</b><span>award categories</span></li>
+            <li><b data-count="3">3</b><span>nomination plans</span></li>
+          </ul>
+        </div>
+        <!-- TODO(content): stand-in photograph (Pexels). Replace with last year's awards stage. -->
+        <figure class="photo photo--ratio reveal" style="--i:2"><img src="img/awards-trophy-1000.webp" srcset="img/awards-trophy-560.webp 560w, img/awards-trophy-1000.webp 1000w" sizes="(min-width: 900px) 560px, 100vw" width="1000" height="667" alt="A gold star trophy on a draped table at an awards event" loading="lazy" decoding="async" data-source="stand-in" data-subject="award trophy"></figure>
+      </div>
+    </div>
+  </section>
 
-<header class="sec-head">
-<p class="eyebrow">Partner with us</p>
-<h2 id="partner-h">Be Part of the Sangam</h2>
-<p class="lead">Reach the people who decide, buy and recommend in healthcare.</p>
-</header>
-<div class="two">
-<div>
-<h3 class="sub">Ways to partner</h3>
-<ul class="plain">
-<li>Title and Presenting Partner</li>
-<li>Associate and Category Partners</li>
-<li>Expo Stall</li>
-<li>Masterclass Partner</li>
-<li>Awards Category Partner</li>
-<li>Knowledge Partner</li>
-</ul>
-</div>
-<div>
-<h3 class="sub">Benefits</h3>
-<ul class="plain">
-<li>Brand visibility across Maharashtra Times and Times Internet platforms</li>
-<li>Direct access to decision-makers</li>
-<li>Speaking slots</li>
-<li>Lead generation</li>
-<li>On-ground presence</li>
-</ul>
-</div>
-</div>
-<div class="hero-cta">
-<a class="btn btn-light" href="tel:+919971129087" aria-label="Talk to our team: call Deepika Pawar on +91 9971129087">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg> Talk to Our Team</a>
-</div>
-</div>
-</section>
-<section class="section" id="our-partners" aria-labelledby="op-h">
-<div class="container">
+  <section class="band band--tint" id="register" aria-labelledby="register-h" data-form-section>
+    <div class="wrap">
+      <div class="split split--wide-text">
+        <div>
+          <p class="eyebrow reveal">Register to attend</p>
+          <h2 id="register-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Registration for the summit</h2>
+          <p class="lead muted reveal" style="--i:2">Pick the pass that fits, then register with your details. Prices are after discount.</p>
+          <ul class="checklist reveal" style="--i:3">
+            <li>Session access with both passes</li>
+            <li>Lunch and the networking arena with Premium</li>
+            <li>Speakers and session timings published here as they are confirmed</li>
+          </ul>
+          <p class="form__note reveal">Questions about registering? <a class="link" href="#contact">Contact the team</a></p>
+        </div>
+        <!-- TODO(payment): pass payment (Basic 1499, Premium 1999 INR) plugs in after validation. Until then a valid submit only opens the confirmation pop-up.
+             TODO(backend): registration form posts here. Replace the placeholder action, or set SS_CONFIG.formEndpoint in js/site.js.
+             TODO(backend): mobile OTP (Send OTP button, 6-digit code input, Verify button, hidden mobile_verified = no|yes) plugs in at the Mobile field.
+             TODO(analytics): fire "registration_submit" after the server answers. -->
+        <div class="formcard reveal" style="--i:2">
+          <form class="form" id="register-form" action="/api/TODO-backend-registration" method="post" novalidate data-ss-form data-sent-what="Your registration has been received." data-summary="pass,organisation,mobile,email">
+            <fieldset class="passes full">
+              <legend>Choose your pass</legend>
+              <div class="passes__grid">
+                <label class="pass">
+                  <input type="radio" name="pass" value="basic" required data-price="1499" data-label="Basic pass, &#8377;1,499" data-summary-label="Pass" aria-describedby="r-pass-err">
+                  <span class="pass__body">
+                    <span class="pass__name">Basic pass</span>
+                    <span class="pass__price"><strong>&#8377;1,499</strong><del><span class="sr-only">Original price </span>&#8377;1,999</del></span>
+                    <span class="pass__save">Save &#8377;500</span>
+                    <span class="pass__list"><span class="yes">Session access</span><span class="no">No lunch</span><span class="no">No networking arena access</span></span>
+                  </span>
+                </label>
+                <label class="pass">
+                  <input type="radio" name="pass" value="premium" required data-price="1999" data-label="Premium pass, &#8377;1,999" data-summary-label="Pass" aria-describedby="r-pass-err">
+                  <span class="pass__body">
+                    <span class="pass__name">Premium pass</span>
+                    <span class="pass__price"><strong>&#8377;1,999</strong><del><span class="sr-only">Original price </span>&#8377;2,999</del></span>
+                    <span class="pass__save">Save &#8377;1,000</span>
+                    <span class="pass__list"><span class="yes">Session access</span><span class="yes">Lunch</span><span class="yes">Networking arena access</span></span>
+                  </span>
+                </label>
+              </div>
+              <p class="err" id="r-pass-err" hidden>Choose a pass to continue.</p>
+            </fieldset>
+            <div class="field"><label for="r-name">Name</label>
+              <input id="r-name" name="name" type="text" autocomplete="name" required aria-describedby="r-name-err">
+              <p class="err" id="r-name-err" hidden>Write your full name.</p></div>
+            <div class="field"><label for="r-org">Organisation</label>
+              <input id="r-org" name="organisation" type="text" autocomplete="organization" required aria-describedby="r-org-err" data-summary-label="Organisation">
+              <p class="err" id="r-org-err" hidden>Write the name of your organisation.</p></div>
+            <div class="field"><label for="r-desig">Designation</label>
+              <input id="r-desig" name="designation" type="text" autocomplete="organization-title" required aria-describedby="r-desig-err">
+              <p class="err" id="r-desig-err" hidden>Write your designation, for example Medical Director.</p></div>
+            <div class="field"><label for="r-city">City</label>
+              <input id="r-city" name="city" type="text" autocomplete="address-level2" required aria-describedby="r-city-err">
+              <p class="err" id="r-city-err" hidden>Write the city you work or live in.</p></div>
+            <div class="field"><label for="r-email">Email</label>
+              <input id="r-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="r-email-err" data-summary-label="Email">
+              <p class="err" id="r-email-err" hidden>Write an email address with an @, like name@example.com.</p></div>
+            <div class="field"><label for="r-mobile">Mobile</label>
+              <input id="r-mobile" name="mobile" type="tel" autocomplete="tel-national" inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10-digit mobile number" required aria-describedby="r-mobile-err" data-summary-label="Mobile">
+              <p class="err" id="r-mobile-err" hidden>Write a 10-digit mobile number that starts with 6, 7, 8 or 9.</p></div>
+            <div class="consent full">
+              <label><input type="checkbox" name="terms" value="yes" required aria-describedby="r-terms-err"><span>I agree to the <a href="https://timeslanguages.in/termsandconditions" target="_blank" rel="noopener">Terms and Conditions</a>, <a href="https://timeslanguages.in/privacypolicy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://timeslanguages.in/cancellationpolicy" target="_blank" rel="noopener">Cancellation Policy</a>, and to be contacted on WhatsApp, email or phone about my registration or any query.</span></label>
+              <p class="err" id="r-terms-err" hidden>Tick this box to agree to the terms and policies before you register.</p>
+            </div>
+            <div class="full"><button class="btn btn--primary btn--block" type="submit" data-track="registration_submit">Register to attend<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+            <p class="form__status full" role="status" data-form-status></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<header class="sec-head">
-<h2 id="op-h">Our Partners</h2>
-<p class="lead">Partner announcements are on the way. <a href="#partner">Be one of them.</a></p>
-</header>
-<div class="grid-4 partners-soon">
-<div class="slot">
-<h3>Presenting Partners</h3>
-<div class="logo-slots" aria-hidden="true"><span class="logo-slot">Logo</span><span class="logo-slot">Logo</span></div>
-<span class="soon-pill">Coming soon</span>
-</div>
-<div class="slot">
-<h3>Associate Partners</h3>
-<div class="logo-slots" aria-hidden="true"><span class="logo-slot">Logo</span><span class="logo-slot">Logo</span></div>
-<span class="soon-pill">Coming soon</span>
-</div>
-<div class="slot">
-<h3>Knowledge Partners</h3>
-<div class="logo-slots" aria-hidden="true"><span class="logo-slot">Logo</span><span class="logo-slot">Logo</span></div>
-<span class="soon-pill">Coming soon</span>
-</div>
-<div class="slot">
-<h3>Media Partners</h3>
-<div class="logo-slots" aria-hidden="true"><span class="logo-slot">Logo</span><span class="logo-slot">Logo</span></div>
-<span class="soon-pill">Coming soon</span>
-</div>
-</div>
-</div>
-</section>
-<section class="section alt" id="faq" aria-labelledby="faq-h">
-<div class="container narrow">
+  <section class="band band--white" id="partner" aria-labelledby="partner-h" data-form-section>
+    <div class="wrap">
+      <div class="split split--img-left split--wide-text">
+        <div>
+          <p class="eyebrow reveal">Partner with us</p>
+          <h2 id="partner-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Partner with Swasthya Sangam</h2>
+          <p class="lead muted reveal" style="--i:2">Reach the people who decide, buy and recommend in healthcare, with visibility across Maharashtra Times and Times Internet platforms, speaking slots, leads and a presence on the ground.</p>
+          <ul class="pgrid" data-stagger>
+            <li>Title and Presenting Partner</li><li>Associate and Category Partners</li><li>Expo stall</li>
+            <li>Masterclass Partner</li><li>Awards Category Partner</li><li>Knowledge Partner</li>
+          </ul>
+          <p class="form__note reveal">Prefer to talk? <a class="link" href="tel:+919971129087" data-track="call_partnerships">Call Deepika Pawar, +91 9971129087</a></p>
+        </div>
+        <!-- TODO(backend): partnership enquiry posts here (source = partner-section). -->
+        <div class="formcard reveal" style="--i:2">
+          <form class="form" id="partner-form" action="/api/TODO-backend-partnership" method="post" novalidate data-ss-form data-sent-what="Your partnership enquiry has been received. The partnerships team will get in touch." data-summary="organisation,interest">
+            <input type="hidden" name="source" value="partner-section">
+            <div class="field"><label for="p-name">Your name</label>
+              <input id="p-name" name="name" type="text" autocomplete="name" required aria-describedby="p-name-err">
+              <p class="err" id="p-name-err" hidden>Write your full name.</p></div>
+            <div class="field"><label for="p-org">Organisation</label>
+              <input id="p-org" name="organisation" type="text" autocomplete="organization" required aria-describedby="p-org-err" data-summary-label="Organisation">
+              <p class="err" id="p-org-err" hidden>Write the name of your organisation.</p></div>
+            <div class="field"><label for="p-email">Work email</label>
+              <input id="p-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="p-email-err">
+              <p class="err" id="p-email-err" hidden>Write an email address with an @, like name@company.com.</p></div>
+            <div class="field"><label for="p-mobile">Mobile</label>
+              <input id="p-mobile" name="mobile" type="tel" autocomplete="tel-national" inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10-digit mobile number" required aria-describedby="p-mobile-err">
+              <p class="err" id="p-mobile-err" hidden>Write a 10-digit mobile number that starts with 6, 7, 8 or 9.</p></div>
+            <div class="field full"><label for="p-interest">Type of partnership</label>
+              <select id="p-interest" name="interest" required aria-describedby="p-interest-err" data-summary-label="Interest">
+                <option value="">Select a type</option>
+                <option value="sponsorship">Sponsorship</option>
+                <option value="expo_exhibition">Expo or exhibition</option>
+                <option value="content_integration">Content integration</option>
+                <option value="awards">Awards</option>
+                <option value="other">Other</option>
+              </select>
+              <p class="err" id="p-interest-err" hidden>Choose the type of partnership you want to discuss.</p></div>
+            <div class="field full"><label for="p-msg">Message <span class="hint">(optional)</span></label>
+              <textarea id="p-msg" name="message" rows="3" maxlength="1000"></textarea></div>
+            <div class="consent full">
+              <label><input type="checkbox" name="terms" value="yes" required aria-describedby="p-terms-err"><span>I agree to the <a href="https://timeslanguages.in/termsandconditions" target="_blank" rel="noopener">Terms and Conditions</a>, <a href="https://timeslanguages.in/privacypolicy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://timeslanguages.in/cancellationpolicy" target="_blank" rel="noopener">Cancellation Policy</a>, and to be contacted on WhatsApp, email or phone about my enquiry.</span></label>
+              <p class="err" id="p-terms-err" hidden>Tick this box to agree to the terms and policies before you send your enquiry.</p>
+            </div>
+            <div class="full"><button class="btn btn--primary btn--block" type="submit" data-track="partner_submit">Send partnership enquiry<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+            <p class="form__status full" role="status" data-form-status></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<header class="sec-head">
-<p class="eyebrow">FAQs</p>
-<h2 id="faq-h">Frequently asked questions</h2>
-</header>
-<div class="faq">
-<details>
-<summary>
-<h3>What is Swasthya Sangam?</h3>
-</summary>
-<p>A health summit, expo, masterclass and awards event by Maharashtra Times in Mumbai.</p>
-</details>
-<details>
-<summary>
-<h3>Who can nominate?</h3>
-</summary>
-<p>Any hospital, doctor, brand or organisation that meets the eligibility rules.</p>
-</details>
-<details>
-<summary>
-<h3>Is there a fee to nominate?</h3>
-</summary>
-<p>Yes. Nomination plans and fees are listed on the Awards page, along with what each plan includes.</p>
-</details>
-<details>
-<summary>
-<h3>Can I attend without a nomination?</h3>
-</summary>
-<p>Yes. Anyone can register to attend.</p>
-</details>
-<details>
-<summary>
-<h3>How are winners picked?</h3>
-</summary>
-<p>An independent jury scores each nomination.</p>
-</details>
-<details>
-<summary>
-<h3>How do I book an Expo stall?</h3>
-</summary>
-<p>Use the Talk to Our Team button in the Partner With Us section to call our partnerships team, or write to the sponsorship team listed under Contact.</p>
-</details>
-</div>
-</div>
-</section>
-<section class="section" id="contact" aria-labelledby="contact-h">
-<div class="container">
-
-<header class="sec-head">
-<h2 id="contact-h">Contact</h2>
-<p class="lead">Reach the right team for your query.</p>
-</header>
-<div class="contact-grid">
-<article class="contact-card">
-<h3>General query</h3>
-<p class="contact-name">Avnish Singh</p>
-<p><span>Contact</span><a href="tel:+917669138964">+91 7669138964</a></p>
-<p><span>Email</span><a href="mailto:avnish.singh@timesinternet.in">avnish.singh@timesinternet.in</a></p>
-</article>
-<article class="contact-card">
-<h3>Partnership</h3>
-<p class="contact-name">Deepika Pawar</p>
-<p><span>Contact</span><a href="tel:+919971129087">+91 9971129087</a></p>
-<p><span>Email</span><a href="mailto:deepika.pawar@timesinternet.in">deepika.pawar@timesinternet.in</a></p>
-</article>
-<article class="contact-card">
-<h3>Award nomination</h3>
-<p class="contact-name">Simran Singh</p>
-<p><span>Contact</span><a href="tel:+917838788554">+91 7838788554</a></p>
-<p><span>Email</span><a href="mailto:simran1@timesinternet.in">simran1@timesinternet.in</a></p>
-</article>
-<article class="contact-card">
-<h3>Sponsorships</h3>
-<p class="contact-name">Gaurav Vats</p>
-<p><span>Contact</span><a href="tel:+919811573962">+91 9811573962</a></p>
-<p><span>Email</span><a href="mailto:gaurav.vats@timesinternet.in">gaurav.vats@timesinternet.in</a></p>
-</article>
-<article class="contact-card">
-<h3>Participation opportunities</h3>
-<p class="contact-name">Sagun Kumari</p>
-<p><span>Contact</span><a href="tel:+919304412377">+91 9304412377</a></p>
-<p><span>Email</span><a href="mailto:sagun.kumari@timesinternet.in">sagun.kumari@timesinternet.in</a></p>
-</article>
-</div>
-</div>
-</section>
-
-
+  <section class="band band--tint" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="split split--wide-text" style="align-items:start">
+        <div class="reveal">
+          <p class="eyebrow">Frequently asked</p>
+          <h2 id="faq-h" style="margin-block: 1rem 1.25rem">Questions about Swasthya Sangam</h2>
+          <p class="lead muted">Cannot find your answer? <a class="link" href="#contact">Contact the team</a></p>
+        </div>
+        <!-- keep this text identical to the FAQPage JSON-LD in the head (scripts/check-seo-sync.mjs checks it) -->
+        <div class="faq" data-stagger>
+          <details class="faq__item"><summary>What is Swasthya Sangam?</summary><div class="faq__a"><p>A health summit, expo, masterclass and awards event by Maharashtra Times in Mumbai on 30 Jan 2027.</p></div></details>
+          <details class="faq__item"><summary>What is the difference between the Basic and Premium pass?</summary><div class="faq__a"><p>The Basic pass (₹1,499) gives session access only. The Premium pass (₹1,999) adds lunch and access to the networking arena.</p></div></details>
+          <details class="faq__item"><summary>Can I attend without a nomination?</summary><div class="faq__a"><p>Yes. Anyone can register to attend.</p></div></details>
+          <details class="faq__item"><summary>Who can nominate?</summary><div class="faq__a"><p>Any hospital, doctor, brand or organisation that meets the eligibility rules.</p></div></details>
+          <details class="faq__item"><summary>Is there a fee to nominate?</summary><div class="faq__a"><p>Yes. Nomination plans and fees are listed on the Awards page, along with what each plan includes.</p></div></details>
+          <details class="faq__item"><summary>How are winners picked?</summary><div class="faq__a"><p>An independent jury scores each nomination.</p></div></details>
+          <details class="faq__item"><summary>How do I book an Expo stall?</summary><div class="faq__a"><p>Send the partnership enquiry on this page, or call Deepika Pawar on +91 9971129087.</p></div></details>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer class="footer">
-<div class="container">
-<div class="logos logos-light">
-<img loading="lazy" src="assets/img/langlive-170.webp" alt="Times Internet Languages Live" width="170" height="106"/>
-<span class="logos-x" aria-hidden="true">|</span>
-<img loading="lazy" src="assets/img/maharashtra-times.png" alt="Maharashtra Times" width="597" height="123"/>
-</div>
-<p>Presented by Maharashtra Times and Times Internet Languages Live</p>
-<p class="legal">
-<a href="https://timeslanguages.in/privacypolicy" target="_blank" rel="noopener">Privacy Policy</a> · <a href="https://timeslanguages.in/termsandconditions" target="_blank" rel="noopener">Terms and Conditions</a> · <a href="https://timeslanguages.in/cancellationpolicy" target="_blank" rel="noopener">Cancellation Policy</a>
-</p>
-<p class="legal">© 2026 Times Internet Limited</p>
-</div>
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2 class="reveal">Join us in Mumbai on <time datetime="2027-01-30">30 Jan 2027</time></h2>
+      <p class="reveal" style="--i:1">Choose a Basic or Premium pass and register for the summit.</p>
+      <a class="btn btn--gold reveal" style="--i:2" href="#register" data-track="register_close">Register to attend<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="touch">
+      <h3 class="touch__h">Get in touch</h3>
+      <ul class="touch__rows" data-stagger>
+        <li class="touch__row">
+          <div class="touch__title"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg><span>Sponsorship</span></div>
+          <div class="touch__people"><div class="touch__person"><b>Gaurav Vats</b><span><a href="tel:+919811573962">+91 9811573962</a><a href="mailto:gaurav.vats@timesinternet.in">gaurav.vats@timesinternet.in</a></span></div></div>
+        </li>
+        <li class="touch__row">
+          <div class="touch__title"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20v-1.2A4.8 4.8 0 0 1 7.8 14h2.4a4.8 4.8 0 0 1 4.8 4.8V20"/><path d="M15.5 4.9a3.2 3.2 0 0 1 0 6.2M18.5 14.3A4.8 4.8 0 0 1 21 18.5V20"/></svg><span>Expo and partnership</span></div>
+          <div class="touch__people"><div class="touch__person"><b>Deepika Pawar</b><span><a href="tel:+919971129087">+91 9971129087</a><a href="mailto:deepika.pawar@timesinternet.in">deepika.pawar@timesinternet.in</a></span></div></div>
+        </li>
+        <li class="touch__row">
+          <div class="touch__title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H5v1.5A3 3 0 0 0 8 10.5M16 6h3v1.5a3 3 0 0 1-3 3M12 13v4M8.5 20h7M10 17h4"/></svg><span>Awards</span></div>
+          <div class="touch__people">
+            <div class="touch__person"><b>Simran Singh</b><span><a href="tel:+917838788554">+91 7838788554</a><a href="mailto:simran1@timesinternet.in">simran1@timesinternet.in</a></span></div>
+            <div class="touch__person"><b>Sagun Kumari</b><span><a href="tel:+919304412377">+91 9304412377</a><a href="mailto:sagun.kumari@timesinternet.in">sagun.kumari@timesinternet.in</a></span></div>
+          </div>
+        </li>
+      </ul>
+      <p class="touch__general">For any general query, write or call <b>Avnish Singh</b>: <a href="tel:+917669138964">+91 7669138964</a> &middot; <a href="mailto:avnish.singh@timesinternet.in">avnish.singh@timesinternet.in</a></p>
+    </div>
+    <div class="foot-brand">
+      <a href="https://timeslanguages.in/" aria-label="Times Internet Languages Live, all events"><img src="https://timeslanguages.in/assets/timeslang/assets/langlive.png" onerror="this.onerror=null;this.src='img/langlive-fallback.webp'" width="517" height="323" alt="Times Internet Languages Live" loading="lazy" decoding="async"></a>
+      <p>Presented by Maharashtra Times and Times Internet Languages Live.</p>
+    </div>
+    <div class="legal">
+      <span>&copy; Times Internet Limited &nbsp; <a href="https://timeslanguages.in/privacypolicy">Privacy Policy</a> <a href="https://timeslanguages.in/termsandconditions">Terms and Conditions</a> <a href="https://timeslanguages.in/cancellationpolicy">Cancellation Policy</a></span>
+      <details><summary>Photographs via Pexels and Unsplash</summary><p>Stand-in photographs from Pexels and Unsplash, used under their free licences. The content team replaces them with photographs from Maharashtra Times events.</p></details>
+    </div>
+  </div>
 </footer>
-  <script src="js/main.js" defer>
-</script>
+
+<div class="actionbar"><a class="btn btn--primary btn--block" href="#register" data-track="register_bar">Register to attend<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+
+<!-- MVP confirmation (see js/site.js). TODO(backend): in production this opens only after the server answers 2xx. -->
+<dialog class="dlg" id="ss-thanks" aria-labelledby="ss-thanks-h">
+  <div class="dlg__tick" aria-hidden="true"></div>
+  <h2 id="ss-thanks-h">Thank you, <span data-fill="name"></span>.</h2>
+  <p data-fill="what"></p>
+  <dl data-fill="summary" hidden></dl>
+  <p>Our team will contact you if we need anything else. For any query, write to <a class="link" href="mailto:avnish.singh@timesinternet.in">avnish.singh@timesinternet.in</a>.</p>
+  <div class="btn-row"><button class="btn btn--primary" type="button" data-close>Close</button></div>
+</dialog>
+
 </body>
 </html>

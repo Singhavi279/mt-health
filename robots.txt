@@ -37,4 +37,4 @@ Allow: /
 User-Agent: Googlebot
 Allow: /
 
-Sitemap: https://singhavi279.github.io/mh-health/sitemap.xml
+Sitemap: https://singhavi279.github.io/mt-health/sitemap.xml
