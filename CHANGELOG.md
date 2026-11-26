@@ -71,3 +71,27 @@ title / meta description / Open Graph / JSON-LD were updated.
 
 - Navbar first item is the current page (Awards on Awards, Summit on Summit). Switching pages and "All events" (timeslanguages.in) are separate header buttons; on phones and tablets they sit at the bottom of the menu. The full desktop header starts at 1180px.
 - Fixed the phone menu opening to an empty panel: the header's backdrop blur made it the containing block of the fixed menu. The blur is now desktop-only.
+
+## Rebuild on the original site (team feedback)
+
+- The redesigned pages are replaced by the original timeslanguages.in/mt-health pages: same content, colours, fonts (Montserrat + Mukta), logos, forms and scripts (assets/styles.css, script.js, awardCategories.js, nomination.js). Additions live in assets/extra.css.
+- Awards order follows what TFM and VK Real Estate share: Hero, Overview, Categories, Eligibility, Why Nominate, Fee, Judging, FAQ, Contact (Simran Singh and Sagun Kumari only). The fee plans are now their own section. No jury section yet.
+- Header like TFM/VK: All Events, section links, then Summit/Awards switch, Enquire Now, Nominate Now (or Register Now). Full link bar from 1500px; menu button below that.
+- Hero: the logo stays on its light background; soft shapes and a slow float animation sit around the edges, not behind it. Award Categories button added. Sticky CTA bar on phones and tablets.
+- Removed the redesign files (css/, js/site.js, img/, scripts/, awards/tnc/). T&C links go to the live timeslanguages.in/mt-health/award/tnc page.
+
+## Round 2 on the original site
+
+- Summit header: Register Now + Partner Now. "Talk to Our Team" is now "Partner Now", opening a partnership enquiry form (name, organisation, work email, mobile, type of partnership, optional message). TODO(backend): no EventHub form code yet, so it validates and thanks without sending.
+- Awards header: Enquire Now + Nominate Now. Summit/Awards switch moved into the nav links.
+- Contact: navy panel with one row per team (Sponsorship, Expo and partnership, Awards, plus the general-query line) on Summit; Awards shows only Simran Singh and Sagun Kumari.
+- Categories: segment tabs run across the top with categories in two columns (no empty space). "Healthcare Providers & Medical Excellence" shows as "Clinical Excellence Awards", first. If the API fails: "Award categories coming soon. Want to know more? Contact Simran Singh: +91 7838788554".
+- Overview: photo beside the unchanged text. Eligibility: accordions, only Organisation & operational requirements open.
+- Plan cards and forms restyled (labels above large rounded fields, +91 prefix, gradient top bar) in the original fonts and colours. Type is ~12% larger site-wide; the full desktop nav shows from 1700px.
+
+## Header, hero and FAQ updates
+
+- Header like the reference: section links, then outlined "Summit page"/"Awards page" and "All events", and a solid "Register now"/"Register to attend" button; Times Internet Languages Live logo only. Full bar from 1660px, menu button below.
+- Summit hero: Register Now and Partner Now. Awards hero: Enquire Now and Nominate Now (new tab); plan cards use Enquire now. "Award Categories" button removed from the Awards hero.
+- Awards FAQ: each of the five groups is an accordion (first two open), questions inside stay accordions.
+- Contact: phone above email for every person.

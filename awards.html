@@ -1,584 +1,699 @@
 <!doctype html>
-<!-- Maharashtra Times Swasthya Sangam Awards 2027: Awards page. Plain HTML/CSS/JS, no build step.
-     Event date: 30 Jan 2027 is the single source of truth.
-     HANDOFF MARKERS: TODO(backend) forms + API config in js/site.js; TODO(payment) Pay Now / Pay Later; TODO(analytics); TODO(content). -->
-<html lang="en">
+<html lang="en-IN">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Swasthya Sangam Awards 2027: Nominate Hospitals, Doctors, Brands</title>
-<meta name="description" content="Nominate a hospital, doctor or health brand for the Maharashtra Times Swasthya Sangam Awards. See award categories, nomination plans and how winners are chosen.">
-<link rel="canonical" href="https://singhavi279.github.io/mt-health/awards.html">
-<meta property="og:url" content="https://singhavi279.github.io/mt-health/awards.html">
-<!-- TODO(content): go-live is https://timeslanguages.in/mthealth/ (this GitHub Pages address is the MVP for editorial review). Then change the base URL in four places: canonical, og:url, og:image and the Event JSON-LD urls. robots.txt, sitemap.xml and llms.txt are handled on timeslanguages.in. -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Maharashtra Times Swasthya Sangam">
-<meta property="og:locale" content="en_IN">
-<meta property="og:title" content="Swasthya Sangam Awards 2027: Nominate Hospitals, Doctors, Brands">
-<meta property="og:description" content="Nominations are open across Maharashtra. Awards ceremony in Mumbai on 30 Jan 2027. See categories and plans.">
-<meta property="og:image" content="https://singhavi279.github.io/mt-health/img/share.jpg">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Maharashtra Times Swasthya Sangam 2027 logo: Wellness and Healthcare Summit and Awards">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="img/favicon.png" type="image/png" sizes="64x64">
-<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<meta name="theme-color" content="#f6f9f8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Awards &amp; Nominations | Swasthya Sangam 2027, Maharashtra Times</title>
+  <meta name="description"
+    content="Nominate a hospital, doctor or health brand for the Maharashtra Times Swasthya Sangam Awards 2027. See award sectors, how nominations work and meet the jury.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="theme-color" content="#1b3f8f">
+  <link rel="canonical" href="awards.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:site_name" content="Maharashtra Times Swasthya Sangam 2027">
+  <meta property="og:title" content="Awards &amp; Nominations | Swasthya Sangam 2027">
+  <meta property="og:url" content="https://timeslanguages.in/mt-health/award">
+  <meta property="og:image" content="https://static.langimg.com/photo/135357495.cms">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Maharashtra Times Swasthya Sangam 2027 logo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://static.langimg.com/photo/135357495.cms">
+  <link rel="icon" href="https://static.langimg.com/photo/135357505.cms">
+  <link rel="preconnect" href="https://static.langimg.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="https://static.langimg.com/photo/135920940.cms?width=480&amp;resizemode=4"
+    imagesrcset="https://static.langimg.com/photo/135920940.cms?width=480&amp;resizemode=4 480w, https://static.langimg.com/photo/135920940.cms?width=800&amp;resizemode=4 800w"
+    imagesizes="(max-width: 640px) 80vw, 520px" fetchpriority="high">
+  <link rel="preconnect" href="https://api.indiatimes.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Mukta:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/extra.css">
+  <link rel="stylesheet" href="https://timeslanguages.in/campaignhub/css/eventFormRenderer.css">
 
-<!-- TODO(analytics): GA4 snippet goes here. No tracking is loaded in the MVP. -->
-
-<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__ssReady)document.documentElement.classList.add('no-reveal')},3000)</script>
-<link rel="preload" as="image" href="img/event-logo.webp" fetchpriority="high">
-<link rel="preconnect" href="https://timeslanguages.in">
-<link rel="preconnect" href="https://api.indiatimes.com">
-<link rel="stylesheet" href="css/site.css">
-<script defer src="js/site.js"></script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "Maharashtra Times Swasthya Sangam Awards 2027",
-  "url": "https://singhavi279.github.io/mt-health/awards.html",
-  "description": "Awards ceremony recognising hospitals, doctors and health brands across Maharashtra, part of Maharashtra Times Swasthya Sangam in Mumbai. Nominations are open and are scored by an independent jury.",
-  "startDate": "2027-01-30",
-  "endDate": "2027-01-30",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "inLanguage": "en",
-  "location": {
-    "@type": "Place",
-    "name": "Venue to be announced",
-    "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "addressCountry": "IN" }
-  },
-  "organizer": [
-    { "@type": "Organization", "name": "Maharashtra Times" },
-    { "@type": "Organization", "name": "Times Internet Languages Live", "url": "https://timeslanguages.in/" }
-  ],
-  "image": "https://singhavi279.github.io/mt-health/img/share.jpg"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is Maharashtra Times Swasthya Sangam 2027?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Maharashtra Times Swasthya Sangam 2027 is a healthcare summit, expo, masterclass and awards initiative presented by Maharashtra Times and Times Internet Languages Live. It brings together healthcare professionals, hospitals, industry leaders, innovators and organisations to exchange knowledge, explore advancements and recognise excellence in healthcare."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who can participate in Swasthya Sangam 2027?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Hospitals, doctors, healthcare professionals, medical institutions, healthcare brands, health-tech companies, startups, medical-device manufacturers and organisations associated with the healthcare and wellness sectors can explore participation opportunities."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who can submit nominations for the Swasthya Sangam Awards?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Hospitals, doctors, healthcare professionals, healthcare organisations, medical institutions, startups and brands can submit nominations under the relevant award categories, subject to the applicable eligibility requirements."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are the different opportunities available at Swasthya Sangam?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Swasthya Sangam offers opportunities to participate in the awards, explore exhibition and showcase opportunities, and engage through summit and masterclass-related participation. Organisations can connect with the organising team to understand the available opportunities."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a fee for submitting nominations?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Three nomination plans are available — Standard Entry, Spotlight Plan and Elite Entry, each with early-bird and actual pricing exclusive of GST. See the nomination plans above for current pricing and what each plan includes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between the available nomination plans?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Standard Entry: One category nomination and listing on the official Awards website. Spotlight Plan: Two category nominations, a digital nomination certificate, social media feature and website listing. Elite Entry: Two category nominations, a digital nomination certificate, social media feature, priority website listing and an exclusive winner video byte/interview."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can an organisation nominate in multiple award categories?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The Standard Entry plan includes one category nomination, while the Spotlight and Elite plans include two category nominations. Organisations can select the plan that best suits their nomination requirements."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does submitting a nomination guarantee an award?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. All nominations are subject to evaluation. Submitting a nomination does not guarantee an award or recognition. Final recognition is based on the evaluation process."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How are the award winners selected?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nominations are evaluated based on their relevance, achievements, contributions and merit in the respective award categories. The selection process determines the organisations and individuals recognised for their contributions to the healthcare sector."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will every organisation that submits a nomination receive an award?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Only nominations that meet the evaluation requirements will be considered for recognition. Participation in the nomination process does not guarantee selection as a winner."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can I submit a nomination?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Visit the official Awards & Nominations page, explore the available nomination plans, select your preferred plan and click on Start a nomination. Submit your details, and the awards team will contact you with the next steps."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can I inquire about nomination fees and payment?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You can contact the awards nomination team for details regarding nomination plans, applicable GST, payment and the next steps in the application process."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Whom should I contact for nomination-related queries?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For nomination-related enquiries, you can contact Simran Singh at +91 7838788554 or simran1@timesinternet.in."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can organisations participate without submitting an award nomination?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Organisations interested in summit participation, exhibition opportunities and other forms of association can connect with the organising team to explore the available options."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can healthcare brands and organisations showcase their products and services?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Healthcare brands, hospitals, health-tech companies and other relevant organisations can enquire about exhibition and showcase opportunities to present their products, services and innovations."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can I enquire about partnership and Expo opportunities?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For partnership, participation and Expo-related enquiries, you can contact Deepika Pawar at +91 9971129087 or deepika.pawar@timesinternet.in."
-      }
-    }
-  ]
-}
-</script>
+  <script>
+    window.isProdEnv = "true";
+    window.constants = JSON.parse(`{"grx_apikey":"g65c03bd1","fonts":{"desktop":"https://static.nbt.indiatimes.com/fonts/NotoSansDevanagari-Regular.woff2"},"envDetails":{"production":{"apiBaseURL":"https://payment.economictimes.indiatimes.com","langapiBaseURL":"https://setufeed.indiatimes.com","paymentConfig":{"tcc":{"merchantKey":"Pu22y3mrty","products":{"default":"tcc_may_26"}},"nivesh_baithak":{"langapiBaseURL":"https://api.indiatimes.com/eventhub/api","merchantKey":"Pu22y3mrty","products":{"learner":"nivesh_delhi_learner","insight":"nivesh_delhi_insight","elite":"nivesh_delhi_elite"}},"nivesh_baithak_surat":{"langapiBaseURL":"https://api.indiatimes.com/eventhub/api","merchantKey":"Pu22y3mrty","products":{"learner":"nivesh_surat_learner","insight":"nivesh_surat_insight","elite":"nivesh_surat_elite","nominationStandard":"nivesh_surat_awards_standard","nominationPremium":"nivesh_surat_awards_premium"}},"nivesh_baithak_lucknow":{"langapiBaseURL":"https://api.indiatimes.com/eventhub/api","merchantKey":"Pu22y3mrty","products":{"learner":"nivesh_lucknow_learner","insight":"nivesh_lucknow_insight","elite":"nivesh_lucknow_elite","nominationStandard":"nivesh_lucknow_awards_standard","nominationPremium":"nivesh_lucknow_awards_premium"}},"mt_health":{"langapiBaseURL":"https://api.indiatimes.com/eventhub/api","merchantKey":"Pu22y3mrty","products":{"standard":"mt_health_std_plan","spotlight":"mt_health_spot_plan","elite":"mt_health_elite_plan"}},"astro_mahasangam":{"langapiBaseURL":"https://api.indiatimes.com/eventhub/api","merchantKey":"6K1cRoBUwI","products":{"consultation":{"mhsngm_consult":"mhsngm_consult"},"nomination":{"individual-sapphire":"mhsngm_awards_ind_silver","individual-emerald":"mhsngm_awards_ind_gold","individual-ruby":"mhsngm_awards_ind_platinum","business-sapphire":"mhsngm_awards_biz_silver","business-emerald":"mhsngm_awards_biz_gold","business-ruby":"mhsngm_awards_biz_platinum"}}},"healing_weekender":{"langapiBaseURL":"https://api.indiatimes.com/eventhub/api","merchantKey":"6K1cRoBUwI","products":{"single":"hwsingleoccupency","double":"hwdoubleoccupency"}},"vk_real_estate":{"langapiBaseURL":"https://api.indiatimes.com/eventhub/api","merchantKey":"Pu22y3mrty","products":{"lite":"vkreal_pass_lite","basic":"vkreal_pass_basic","premium":"vkreal_pass_premium"}},"tfm_blr":{"langapiBaseURL":"https://api.indiatimes.com/eventhub/api","registrationClosed":true,"merchantKey":"Pu22y3mrty","products":{"passExpo":"tfm_oct26_pass_expo","passLite":"tfm_oct26_pass_lite","pass":"tfm_oct26_pass","awards":{"standard":"tfmblroct26simcustom","spotlight":"tfm_awards_spotlight_oct26","elite":"tfm_awards_elite_oct26"}},"forms":{"register":"tfm-bengaluru-register","partnership":"tfm-bengaluru-partnership","expo":"tfm-bengaluru-expo","awardsNominate":"tfm-bengaluru-awards-nominate","awardsRegister":"tfm-bengaluru-awards-register","awardsPartnership":"tfm-bengaluru-awards-partnership"}}},"grxApiKey":"g65c03bd1","eventHubBaseURL":"https://api.indiatimes.com/eventhub/api/public","astroMahasangam":{"eventId":"6a59fc0f8e75f1926c1a715f"}},"testing":{"apiBaseURL":"https://payment-qa.economictimes.indiatimes.com","langapiBaseURL":"https://stgsetufeed.indiatimes.com","paymentConfig":{"tcc":{"merchantKey":"Ty6gs3mO2a","products":{"default":"tcc_may_qc"}},"nivesh_baithak":{"langapiBaseURL":"https://staging-eventhub.indiatimes.com/api","merchantKey":"Ty6gs3mO2a","products":{"learner":"nivesh_delhi_learner_qc","insight":"nivesh_delhi_insight_qc","elite":"nivesh_delhi_elite_qc"}},"nivesh_baithak_surat":{"langapiBaseURL":"https://staging-eventhub.indiatimes.com/api","merchantKey":"Ty6gs3mO2a","products":{"learner":"nivesh_surat_learner","insight":"nivesh_surat_insight","elite":"nivesh_surat_elite","nominationStandard":"nivesh_surat_awards_standard","nominationPremium":"nivesh_surat_awards_premium"}},"nivesh_baithak_lucknow":{"langapiBaseURL":"https://staging-eventhub.indiatimes.com/api","merchantKey":"Ty6gs3mO2a","products":{"learner":"nivesh_lucknow_learner","insight":"nivesh_lucknow_insight","elite":"nivesh_lucknow_elite","nominationStandard":"nivesh_lucknow_awards_standard","nominationPremium":"nivesh_lucknow_awards_premium"}},"mt_health":{"langapiBaseURL":"https://staging-eventhub.indiatimes.com/api","merchantKey":"Ty6gs3mO2a","products":{"standard":"mt_health_std_plan","spotlight":"mt_health_spot_plan","elite":"mt_health_elite_plan"}},"astro_mahasangam":{"langapiBaseURL":"https://staging-eventhub.indiatimes.com/api","merchantKey":"zn491EBZFh","products":{"consultation":{"mhsngm_consult":"mhsngm_consult"},"nomination":{"individual-sapphire":"mhsngm_awards_ind_silver","individual-emerald":"mhsngm_awards_ind_gold","individual-ruby":"mhsngm_awards_ind_platinum","business-sapphire":"mhsngm_awards_biz_silver","business-emerald":"mhsngm_awards_biz_gold","business-ruby":"mhsngm_awards_biz_platinum"}}},"healing_weekender":{"langapiBaseURL":"https://staging-eventhub.indiatimes.com/api","merchantKey":"zn491EBZFh","products":{"single":"hwsingleoccupency","double":"hwdoubleoccupency"}},"vk_real_estate":{"langapiBaseURL":"https://staging-eventhub.indiatimes.com/api","merchantKey":"Ty6gs3mO2a","products":{"lite":"vkreal_pass_lite","basic":"vkreal_pass_basic","premium":"vkreal_pass_premium"}},"tfm_blr":{"langapiBaseURL":"https://staging-eventhub.indiatimes.com/api","registrationClosed":true,"merchantKey":"Ty6gs3mO2a","products":{"passExpo":"tfm_oct26_pass_expo","passLite":"tfm_oct26_pass_lite","pass":"tfm_oct26_pass","awards":{"standard":"tfmblroct26simcustom","spotlight":"tfm_awards_spotlight_oct26","elite":"tfm_awards_elite_oct26"}},"forms":{"register":"tfm-bengaluru-register","partnership":"tfm-bengaluru-partnership","expo":"tfm-bengaluru-expo","awardsNominate":"tfm-bengaluru-awards-nominate","awardsRegister":"tfm-bengaluru-awards-register","awardsPartnership":"tfm-bengaluru-awards-partnership"}}},"grxApiKey":"g65c03bd1","eventHubBaseURL":"https://staging-eventhub.indiatimes.com/api/public","astroMahasangam":{"eventId":"6a759f8f08a8e278f9413e58"}}},"bannerAds":{"timeslanguages":{"gutter":false,"mrec":false}},"versions":{"desktopcss":"17june2026Desktop","mobilecss":"17june2026Mobile","stylecss":"17june2026","script":"17june2026","recoWidgetCore":"1.0.6","recoWidgetDemographic":"1.0.7","recoWidgetFaq":"1.0.6","recoWidgetLocation":"1.0.12","recoWidgetAstroService":"1.0.5","recoWidgetFaqNudge":"1.0.0","eventWire":"1.0.0"}}`);
+    // No GRX funnel for this event, but this still names the OTP login flow
+    // — otherwise the TFM renderer defaults it to "tfm-bengaluru"
+    // (docs/new-event-integration.md §3).
+    window.constants.grxTrackingName = "mt-health";
+    window.platform = "desktop";
+  </script>
 </head>
+
 <body>
-<a class="skip" href="#top">Skip to content</a>
 
-<header class="site-header" data-header>
-  <div class="wrap bar">
-    <a class="brand" href="https://timeslanguages.in/" aria-label="Times Internet Languages Live, all events">
-      <img src="https://timeslanguages.in/assets/timeslang/assets/langlive.png" onerror="this.onerror=null;this.src='img/langlive-fallback.webp'" width="517" height="323" alt="Times Internet Languages Live" fetchpriority="low" decoding="async">
-    </a>
-    <nav class="nav" id="nav" aria-label="Main">
-      <a href="#top" aria-current="page">Awards</a>
-      <a href="#overview">Overview</a>
-      <a href="#categories">Categories</a>
-      <a href="#eligibility">Eligibility</a>
-      <a href="#how">Process</a>
-      <a href="#plans">Fees</a>
-      <a href="#faq">FAQ</a>
-      <div class="nav__more"><a class="btn btn--ghost" href="index.html" data-track="switch_page">Summit page</a><a class="btn btn--ghost" href="https://timeslanguages.in" data-track="all_events">All events</a></div>
-    </nav>
-    <div class="bar__links"><a class="btn btn--ghost" href="index.html" data-track="switch_page">Summit page</a><a class="btn btn--ghost" href="https://timeslanguages.in" data-track="all_events">All events</a></div>
-    <a class="btn btn--primary bar__cta" href="#nominate" data-track="register_nav">Register now</a>
-    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span></button>
-  </div>
-  <div class="progress" aria-hidden="true"><i></i></div>
-</header>
+  <a class="skip" href="#main">Skip to content</a>
 
-<main id="top">
+  <header class="topbar">
+    <div class="container topbar-in">
+      <a class="brand" href="index.html"
+        aria-label="Maharashtra Times Swasthya Sangam 2027 home">
+        <img src="https://static.langimg.com/photo/135357500.cms" alt="Times Internet Languages Live" width="170" height="106" />
+      </a>
 
-  <section class="hero" aria-labelledby="hero-h">
-    <div class="wrap hero__grid">
-      <div>
-        <p class="kicker rise" style="--i:0">Health awards in Maharashtra, <time datetime="2027-01-30">30 Jan 2027</time></p>
-        <h1 id="hero-h" class="rise" style="--i:1">Maharashtra Times Swasthya Sangam Awards</h1>
-        <p class="lead rise" style="--i:2">Nominations are open for hospitals, doctors and health brands across Maharashtra. Winners are recognised at the Awards ceremony in Mumbai on <time datetime="2027-01-30">30 Jan 2027</time>.</p>
-        <div class="btn-row rise" style="--i:3">
-          <a class="btn btn--primary" href="#nominate" data-track="register_hero">Register now<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn--ghost" href="#categories" data-track="categories_hero">See award categories</a>
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="awards.html" aria-current="page">Awards</a>
+        <a href="#overview">Overview</a>
+        <a href="#awards">Categories</a>
+        <a href="#eligibility">Eligibility</a>
+        <a href="#judging">Process</a>
+        <a href="#pricing">Fees</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="topbar-cta">
+        <a class="btn btn-ghost btn-sm hide-sm" href="index.html">Summit page</a>
+        <a class="btn btn-ghost btn-sm hide-sm" href="https://timeslanguages.in/" target="_blank" rel="noopener">All events</a>
+        <a class="btn btn-primary btn-sm" href="#enquire" data-open-enquiry>Register now</a>
+      </div>
+      <details class="menu">
+        <summary aria-label="Open menu"><span></span><span></span><span></span></summary>
+        <nav aria-label="Mobile">
+          <a href="awards.html" aria-current="page">Awards</a>
+          <a href="#overview">Overview</a>
+          <a href="#awards">Categories</a>
+          <a href="#eligibility">Eligibility</a>
+          <a href="#judging">Process</a>
+          <a href="#pricing">Fees</a>
+          <a href="#faq">FAQ</a>
+          <a href="index.html">Summit page</a>
+          <a href="https://timeslanguages.in/">All events</a>
+          <a href="#enquire" data-open-enquiry>Enquire now</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero-lite hero-lite-awards" aria-labelledby="page-title">
+      <div class="hero-deco" aria-hidden="true"><i class="d1"></i><i class="d2"></i><i class="d3"></i><i class="d4"></i><i class="d5"></i><i class="d6"></i></div>
+      <div class="container hero-lite-in">
+        <h1 id="page-title" class="sr-only">Maharashtra Times Swasthya Sangam 2027: The Health Awards</h1>
+        <img class="hero-lite-logo" src="https://static.langimg.com/photo/135920940.cms?width=800&amp;resizemode=4"
+          srcset="https://static.langimg.com/photo/135920940.cms?width=480&amp;resizemode=4 480w, https://static.langimg.com/photo/135920940.cms?width=800&amp;resizemode=4 800w"
+          sizes="(max-width: 640px) 80vw, 520px"
+          alt="Maharashtra Times Swasthya Sangam 2027: Health, Wellness &amp; Healthcare Summit &amp; Awards"
+          width="800" height="566" decoding="async" fetchpriority="high" />
+        <div class="hero-lite-credit">
+          <span>An initiative by:</span>
+          <img src="https://static.langimg.com/photo/135357500.cms" alt="Times Internet Languages Live" width="170"
+            height="106" />
         </div>
-        <dl class="facts rise" style="--i:4"><div><dt>Date</dt><dd><time datetime="2027-01-30">30 Jan 2027</time></dd></div><div><dt>Venue</dt><dd>Mumbai</dd></div></dl>
-        <p class="credit rise" style="--i:5">An initiative by <b>Times Internet Languages Live</b></p>
-      </div>
-      <div class="hero__card rise" style="--i:2">
-        <img src="img/event-logo.webp" width="480" height="285" alt="Swasthya Sangam 2027 by Maharashtra Times: Wellness and Healthcare Summit and Awards" fetchpriority="high" decoding="async">
-        <div class="chip-float chip-float--b"><span>Nominations</span><b>Open</b></div>
-        <div class="chip-float chip-float--a"><span>Ceremony</span><b><time datetime="2027-01-30">30 Jan 2027</time>, Mumbai</b></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="ticker" role="group" aria-label="Awards highlights">
-    <div class="ticker__track">
-      <ul>
-        <li>Nominations open</li><li>Ceremony <time datetime="2027-01-30">30 Jan 2027</time></li><li>Mumbai</li><li>Hospitals</li><li>Doctors</li><li>Health brands</li>
-        <li aria-hidden="true">Nominations open</li><li aria-hidden="true">Ceremony 30 Jan 2027</li><li aria-hidden="true">Mumbai</li><li aria-hidden="true">Hospitals</li><li aria-hidden="true">Doctors</li><li aria-hidden="true">Health brands</li>
-      </ul>
-      <ul aria-hidden="true">
-        <li>Nominations open</li><li>Ceremony 30 Jan 2027</li><li>Mumbai</li><li>Hospitals</li><li>Doctors</li><li>Health brands</li>
-        <li>Nominations open</li><li>Ceremony 30 Jan 2027</li><li>Mumbai</li><li>Hospitals</li><li>Doctors</li><li>Health brands</li>
-      </ul>
-    </div>
-    <button class="ticker__pause" type="button" aria-pressed="false" aria-label="Pause scrolling text">Pause</button>
-  </div>
-
-  <section class="band band--white" id="overview" aria-labelledby="overview-h">
-    <div class="wrap">
-      <div class="split">
-        <div>
-          <p class="eyebrow reveal">Overview</p>
-          <h2 id="overview-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Celebrating the Best of India's Health and Wellness</h2>
-          <p class="lead muted reveal" style="--i:2">The Maharashtra Times Swasthya Sangam Awards 2027 is a healthcare recognition platform celebrating excellence, innovation and meaningful contributions across India's healthcare ecosystem. The awards recognise outstanding contributions from hospitals, doctors, pharmaceutical companies, diagnostic laboratories, healthcare startups, MedTech and HealthTech innovators, wellness brands and public health organisations.</p>
-          <p class="reveal" style="--i:3; margin-top: 1rem">The initiative aims to bring together key stakeholders who are shaping the future of healthcare, while celebrating individuals and organisations making a measurable difference in people's lives.</p>
+        <div class="hero-lite-cta">
+          <a class="btn btn-gold" href="#enquire" data-open-enquiry>Enquire Now <svg xmlns="http://www.w3.org/2000/svg"
+              width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg></a>
+          <a class="btn btn-ghost"
+            href="https://timeslanguages.in/maharashtra-times-swasthya-sangam-2027/nominations/home" target="_blank" rel="noopener">Nominate Now</a>
         </div>
-        <figure class="photo photo--ratio reveal" style="--i:2"><img src="img/attend-doctors-1000.webp" srcset="img/attend-doctors-560.webp 560w, img/attend-doctors-1000.webp 1000w" sizes="(min-width: 900px) 560px, 100vw" width="1000" height="667" alt="Two Indian doctors in white coats reviewing a tablet together in a hospital corridor" loading="lazy" decoding="async" data-source="stand-in" data-subject="doctors"></figure>
+        <dl class="hero-lite-facts" aria-label="Date and venue">
+          <div><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+              <line x1="16" x2="16" y1="2" y2="6" />
+              <line x1="8" x2="8" y1="2" y2="6" />
+              <line x1="3" x2="21" y1="10" y2="10" />
+            </svg><span>
+              <dt>Date</dt>
+              <dd>30 Jan 2027</dd>
+            </span></div>
+          <div><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg><span>
+              <dt>Venue</dt>
+              <dd>Mumbai</dd>
+            </span></div>
+        </dl>
       </div>
-      <ul class="stats stats--3" data-stagger>
-        <li hidden><b data-count="0" data-count-api="segments">0</b><span>segments</span></li>
-        <li hidden><b data-count="0" data-count-api="categories">0</b><span>award categories</span></li>
-        <li><b data-count="3">3</b><span>nomination plans</span></li>
-      </ul>
-    </div>
-  </section>
+    </section>
 
-  <section class="band band--navy band--wave" id="why" aria-labelledby="why-h">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="eyebrow">Why nominate</p>
-        <h2 id="why-h">Why Nominate?</h2>
-      </div>
-      <ul class="themes themes--4" data-stagger>
-        <li class="theme"><h3>Recognition for Healthcare Excellence</h3><p>Gain recognition for your contribution to healthcare through Maharashtra Times, celebrating excellence in clinical care, patient outcomes, medical expertise and institutional performance.</p></li>
-        <li class="theme"><h3>Connect with Healthcare Decision-Makers</h3><p>Engage with leading doctors, hospital administrators, healthcare entrepreneurs, pharmaceutical leaders, medical researchers and policymakers driving advancements across the healthcare ecosystem.</p></li>
-        <li class="theme"><h3>Showcase Medical Innovation and Impact</h3><p>Highlight your achievements in advanced treatments, diagnostic capabilities, medical technology, patient care, preventive healthcare and innovations that are transforming healthcare delivery.</p></li>
-        <li class="theme"><h3>Build Trust and Strengthen Healthcare Credibility</h3><p>Enhance your professional and institutional reputation through industry recognition, while showcasing your commitment to quality healthcare, patient safety, accessibility and better health outcomes.</p></li>
-      </ul>
-      <div class="btn-row reveal" style="margin-top: 2.5rem"><a class="btn btn--gold" href="#nominate" data-track="register_why">Register now<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </div>
-  </section>
-
-  <section class="band band--white" id="categories" aria-labelledby="categories-h">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="eyebrow">Award categories</p>
-        <h2 id="categories-h">Recognition across the healthcare ecosystem</h2>
-        <p>Find the category that fits your work. <span data-award-count hidden></span></p>
-      </div>
-      <div class="finder reveal">
-        <label for="cat-search">Find a category</label>
-        <input id="cat-search" type="search" placeholder="Try hospital, nutrition or cardiology" autocomplete="off">
-        <p class="finder__count" id="cat-count" role="status"></p>
-      </div>
-      <!-- Categories load from the Eventhub API (see js/site.js SS_CONFIG). TODO(backend): confirm the endpoint is final. -->
-      <div id="award-segments" class="segs" aria-live="polite"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
-    </div>
-  </section>
-
-  <section class="band band--tint" id="eligibility" aria-labelledby="eligibility-h">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="eyebrow">Eligibility</p>
-        <h2 id="eligibility-h">Eligibility criteria</h2>
-        <p>Please review the requirements below before submitting a nomination.</p>
-      </div>
-      <div class="elig" data-stagger>
-        <details class="elig__card elig__card--org" open><summary><h3>Organisation &amp; operational requirements</h3></summary><div class="acc__body">
-          <ul class="rules">
-              <li>The participating organisation must have a minimum of 3 completed years of continuous, active operations in Maharashtra, India, as of 31 March 2026. This applies to all organisational nominees, including startups, and is measured from the commencement of active operations, not merely the date of incorporation.</li>
-              <li>The participating organisation must be legally registered in Maharashtra and submit applicable documentary evidence.</li>
-              <li>The nominee must also hold the licences, registrations or authorisations applicable to the services or activities entered.</li>
-              <li>The nominated initiative, product, technology, solution or program should have been implemented, commercialised, piloted or demonstrated measurable impact between 1 April 2024 and 31 March 2026. If launched earlier, the nominee must clearly demonstrate significant progress, scale-up, innovation or measurable impact during the eligibility period.</li>
-          </ul>
-        </div></details>
-        <details class="elig__card" open><summary><h3>Participant eligibility</h3></summary><div class="acc__body">
-          <ul class="rules">
-              <li>The participant should be 18 years of age to participate in the Awards.</li>
-              <li>An individual nominee should be an Indian citizen currently residing in India, and legally eligible to work in India.</li>
-              <li>An organisation cannot participate on behalf of its sister units, parent organisation or other organisations under the parent organisation.</li>
-          </ul>
-        </div></details>
-        <details class="elig__card elig__card--gov" open><summary><h3>Governing terms</h3></summary><div class="acc__body">
-          <ul class="rules">
-              <li>Participation in the awards is subject to the defined <a class="link" href="awards/tnc/index.html">terms and conditions</a>.</li>
-              <li>The award categories may be changed, modified, split, merged, increased or cancelled by the Awards Management and/or Jury based on the number of entries received in any category and the quality of the entries. This decision is final, non-contestable and binding on all participants; the Awards management will not entertain queries on this.</li>
-              <li>If at any time, including after the conclusion of the Award ceremony, any information provided by a participant is found to be incorrect in any manner, the participant will be liable to be disqualified and/or required to return the Award.</li>
-          </ul>
-        </div></details>
-        <details class="elig__card elig__card--wide"><summary><h3>Category-specific experience requirements</h3></summary><div class="acc__body">
-          <p class="muted">Unless stated otherwise, experience is measured as of 31 March 2026.</p>
-          <ul class="rules rules--cols">
-              <li><b>Healthcare Institution of the Year</b><span>The participating hospital must have a minimum of 5 completed years of continuous, active healthcare operations.</span></li>
-              <li><b>Clinical Excellence Award</b><span>The nominee must have a minimum of 5 completed years of clinical practice relevant to the nominated specialty.</span></li>
-              <li><b>Nursing Excellence Award</b><span>The nominee must have a minimum of 3 completed years of relevant nursing practice.</span></li>
-              <li><b>Healthcare Leadership Award</b><span>The nominee must have a minimum of 10 completed years of relevant healthcare leadership experience.</span></li>
-              <li><b>Yoga Practitioner of the Year</b><span>The nominee must have a minimum of 3 completed years of relevant professional yoga practice.</span></li>
-              <li><b>Nutrition &amp; Public Health Leadership Award</b><span>The nominee must have a minimum of 3 completed years of relevant professional work in nutrition or public health.</span></li>
-              <li><b>Excellence in Psychological Care</b><span>The nominee must have a minimum of 3 completed years of relevant psychological-care practice.</span></li>
-              <li><b>AYUSH Leadership Award</b><span>The nominee must have a minimum of 3 completed years of relevant practice or professional work in the nominated AYUSH discipline.</span></li>
-              <li><b>Dietitian of the Year</b><span>The nominee must have a minimum of 3 completed years of relevant clinical dietetics or clinical nutrition practice.</span></li>
-              <li><b>Emerging Hospital of the Year</b><span>The nominated organisation must have completed at least 3 years and no more than 5 years of active hospital operations.</span></li>
-          </ul>
-        </div></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="band band--white" id="how" aria-labelledby="how-h">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="eyebrow">How it works</p>
-        <h2 id="how-h">How a nomination works</h2>
-      </div>
-      <ol class="steps" data-stagger>
-        <li class="step"><h3>Send the enquiry</h3><p>Choose a plan and a segment and tell us about your work.</p></li>
-        <li class="step"><h3>Our team contacts you</h3><p>We reach out to continue with the nomination form.</p></li>
-        <li class="step"><h3>Entries are screened and judged</h3><p>Independent tabulators check each entry, then the expert jury assesses the shortlist.</p></li>
-        <li class="step"><h3>Winners are recognised</h3><p>The Awards ceremony is on <time datetime="2027-01-30">30 Jan 2027</time> in Mumbai.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="band band--teal band--wave" id="judging" aria-labelledby="judging-h">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="eyebrow">How winners are chosen</p>
-        <h2 id="judging-h">The Judging Process</h2>
-      </div>
-      <ul class="themes themes--2" data-stagger>
-        <li class="theme"><h3>Official Tabulator Review</h3><p>Entries first undergo preliminary screening by independent official tabulators for completeness, eligibility, and compliance.</p></li>
-        <li class="theme"><h3>Expert Jury Evaluation</h3><p>Shortlisted entries advance to the distinguished jury for final assessment based on innovation, impact, and excellence.</p></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="band band--white" id="plans" aria-labelledby="plans-h">
-    <div class="wrap">
-      <div class="head reveal">
-        <p class="eyebrow">Nomination fee</p>
-        <h2 id="plans-h">Choose your nomination plan</h2>
-        <p>Pick how many categories you enter and what your listing includes. Prices are exclusive of GST.</p>
-      </div>
-      <!-- Prices load from the product API per product code (js/site.js). TODO(payment): payment is not connected; see the form below. -->
-      <div class="plans" data-stagger>
-        <article class="plan" data-plan="standard" data-pcode="mt_health_std_plan">
-          <h3>Standard Entry</h3>
-          <p class="plan__badge" hidden>Early Bird Offer</p>
-          <div class="plan__price" data-price aria-live="polite"><small>Loading price</small></div>
-          <ul class="plan__list"><li>1 category nomination</li><li>Listing on the official Awards website</li></ul>
-          <a class="btn btn--ghost" href="#nominate" data-track="plan_standard">Register now</a>
-        </article>
-        <article class="plan plan--feat" data-plan="spotlight" data-pcode="mt_health_spot_plan">
-          <h3>Spotlight Plan</h3>
-          <p class="plan__badge" hidden>Early Bird Offer</p>
-          <div class="plan__price" data-price aria-live="polite"><small>Loading price</small></div>
-          <ul class="plan__list">
-            <li>2 category nominations</li><li>Digital nomination certificate</li>
-            <li>Social media feature on LinkedIn, Instagram, Meta and X</li><li>Listing on the official Awards website</li>
-          </ul>
-          <a class="btn btn--gold" href="#nominate" data-track="plan_spotlight">Register now</a>
-        </article>
-        <article class="plan" data-plan="elite" data-pcode="mt_health_elite_plan">
-          <h3>Elite Entry</h3>
-          <p class="plan__badge" hidden>Early Bird Offer</p>
-          <div class="plan__price" data-price aria-live="polite"><small>Loading price</small></div>
-          <ul class="plan__list">
-            <li>2 category nominations</li><li>Digital nomination certificate</li>
-            <li>Social media feature on LinkedIn, Instagram, Meta and X</li><li>Priority listing on the official Awards website</li>
-            <li>Winner exclusive video byte or interview</li>
-          </ul>
-          <a class="btn btn--ghost" href="#nominate" data-track="plan_elite">Register now</a>
-        </article>
-      </div>
-      <p class="plans-note reveal">Maharashtra Times Swasthya Sangam Awards is an initiative by Times Internet. Nominations are subject to evaluation. This is not an assurance of any award or recognition.</p>
-    </div>
-  </section>
-
-  <section class="band band--tint" id="nominate" aria-labelledby="nominate-h" data-form-section>
-    <div class="wrap">
-      <div class="split split--wide-text" style="align-items:start">
-        <div>
-          <p class="eyebrow reveal">Enquiry</p>
-          <h2 id="nominate-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Register now</h2>
-          <p class="lead muted reveal" style="--i:2">Share your details and the awards team will get in touch.</p>
-          <ul class="checklist reveal" style="--i:3">
-            <li>Share your contact details</li>
-            <li>Our team calls you within a working day or two</li>
-            <li>We explain categories, plans and next steps</li>
-          </ul>
-          <p class="form__note reveal">Questions? Call Simran Singh on <a class="link" href="tel:+917838788554">+91 7838788554</a></p>
+    <section class="section" id="overview" aria-labelledby="overview-h">
+      <div class="container">
+        <div class="ov-grid">
+          <div class="prose">
+          <header class="sec-head">
+            <p class="eyebrow">Overview</p>
+            <h2 id="overview-h">Celebrating the Best of India&#x27;s Health and Wellness</h2>
+          </header>
+          <p class="lead">The Maharashtra Times Swasthya Sangam Awards 2027 is a healthcare recognition platform
+            celebrating excellence, innovation and meaningful contributions across India&#x27;s healthcare
+            ecosystem. The awards recognise outstanding contributions from hospitals, doctors, pharmaceutical
+            companies, diagnostic laboratories, healthcare startups, MedTech and HealthTech innovators, wellness
+            brands and public health organisations.</p>
+          <p>The initiative aims to bring together key stakeholders who are shaping the future of healthcare, while
+            celebrating individuals and organisations making a measurable difference in people&#x27;s lives.</p>
         </div>
-        <!-- TODO(backend): nomination enquiry posts here. Replace the placeholder action, or set SS_CONFIG.formEndpoint in js/site.js.
-             TODO(payment): the Pay Now / Pay Later choice and the payment summary step (plan, fee, GST, total) from the old flow plug in here;
-             until then one button sends the enquiry and the team follows up.
-             TODO(backend): mobile OTP (Send OTP, Verify, hidden mobile_verified) plugs in at the Mobile field. -->
-        <div class="formcard reveal" style="--i:2">
-          <form class="form" id="nominate-form" action="/api/TODO-backend-nomination" method="post" novalidate data-ss-form data-sent-what="Your details have been received. Our awards team will reach out to you shortly." data-summary="mobile">
-            <input type="hidden" name="source" value="awards-page">
-            <div class="field"><label for="n-name">Full name</label>
-              <input id="n-name" name="name" type="text" autocomplete="name" required aria-describedby="n-name-err">
-              <p class="err" id="n-name-err" hidden>Write your full name.</p></div>
-            <div class="field"><label for="n-email">Email</label>
-              <input id="n-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="n-email-err">
-              <p class="err" id="n-email-err" hidden>Write an email address with an @, like name@example.com.</p></div>
-            <div class="field"><label for="n-mobile">Phone number</label>
-              <div class="phone"><span aria-hidden="true">+91</span><input id="n-mobile" name="mobile" type="tel" autocomplete="tel-national" inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10-digit mobile number" required aria-describedby="n-mobile-err" data-summary-label="We will reach you on"></div>
-              <p class="err" id="n-mobile-err" hidden>Write a 10-digit mobile number that starts with 6, 7, 8 or 9.</p></div>
-            <div class="field"><label for="n-desig">Designation</label>
-              <input id="n-desig" name="designation" type="text" autocomplete="organization-title" required aria-describedby="n-desig-err">
-              <p class="err" id="n-desig-err" hidden>Write your designation, for example Medical Director.</p></div>
-            <div class="field full"><label for="n-org">Organisation</label>
-              <input id="n-org" name="organisation" type="text" autocomplete="organization" required aria-describedby="n-org-err">
-              <p class="err" id="n-org-err" hidden>Write the name of your organisation.</p></div>
-            <div class="consent full">
-              <label><input type="checkbox" name="terms" value="yes" required aria-describedby="n-terms-err"><span>I agree to the <a href="awards/tnc/index.html" target="_blank" rel="noopener">Awards Terms and Conditions</a>, <a href="https://timeslanguages.in/privacypolicy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://timeslanguages.in/cancellationpolicy" target="_blank" rel="noopener">Cancellation Policy</a>, and to be contacted on WhatsApp, email or phone about my nomination or any query.</span></label>
-              <p class="err" id="n-terms-err" hidden>Tick this box to agree to the terms and policies before you send your enquiry.</p>
-            </div>
-            <div class="full"><button class="btn btn--primary btn--block" type="submit" data-track="nomination_submit">Submit<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
-            <p class="form__status full" role="status" data-form-status></p>
-            <p class="form__note full">Nominations are subject to evaluation. Sending an enquiry is not an assurance of any award or recognition.</p>
-          </form>
+          <figure class="ov-photo"><img src="assets/img/overview-doctors.webp" alt="A senior doctor explaining a heart model to a group of medical students" width="1000" height="667" loading="lazy" decoding="async"></figure>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="band band--white" id="faq" aria-labelledby="faq-h">
-    <div class="wrap">
-      <div class="split split--wide-text" style="align-items:start">
-        <div class="reveal sticky">
-          <p class="eyebrow">Frequently asked</p>
-          <h2 id="faq-h" style="margin-block: 1rem 1.25rem">Frequently asked questions</h2>
-          <p class="lead muted">Cannot find your answer? <a class="link" href="#contact">Contact the team</a></p>
-        </div>
-        <!-- keep this text identical to the FAQPage JSON-LD in the head (scripts/check-seo-sync.mjs checks it) -->
-        <div class="faq-groups">
-          <details class="faq-group" open><summary><h3>General Information</h3></summary><div class="acc__body">
-            <div class="faq" data-stagger>
-              <details class="faq__item" open><summary>What is Maharashtra Times Swasthya Sangam 2027?</summary><div class="faq__a"><p>Maharashtra Times Swasthya Sangam 2027 is a healthcare summit, expo, masterclass and awards initiative presented by Maharashtra Times and Times Internet Languages Live. It brings together healthcare professionals, hospitals, industry leaders, innovators and organisations to exchange knowledge, explore advancements and recognise excellence in healthcare.</p></div></details>
-              <details class="faq__item"><summary>Who can participate in Swasthya Sangam 2027?</summary><div class="faq__a"><p>Hospitals, doctors, healthcare professionals, medical institutions, healthcare brands, health-tech companies, startups, medical-device manufacturers and organisations associated with the healthcare and wellness sectors can explore participation opportunities.</p></div></details>
-              <details class="faq__item"><summary>Who can submit nominations for the Swasthya Sangam Awards?</summary><div class="faq__a"><p>Hospitals, doctors, healthcare professionals, healthcare organisations, medical institutions, startups and brands can submit nominations under the relevant award categories, subject to the applicable eligibility requirements.</p></div></details>
-              <details class="faq__item"><summary>What are the different opportunities available at Swasthya Sangam?</summary><div class="faq__a"><p>Swasthya Sangam offers opportunities to participate in the awards, explore exhibition and showcase opportunities, and engage through summit and masterclass-related participation. Organisations can connect with the organising team to understand the available opportunities.</p></div></details>
-            </div>
-          </div></details>
-          <details class="faq-group"><summary><h3>Nomination &amp; Qualification</h3></summary><div class="acc__body">
-            <div class="faq" data-stagger>
-              <details class="faq__item"><summary>Is there a fee for submitting nominations?</summary><div class="faq__a"><p>Yes. Three nomination plans are available — Standard Entry, Spotlight Plan and Elite Entry, each with early-bird and actual pricing exclusive of GST. See the nomination plans above for current pricing and what each plan includes.</p></div></details>
-              <details class="faq__item"><summary>What is the difference between the available nomination plans?</summary><div class="faq__a"><p>Standard Entry: One category nomination and listing on the official Awards website.<br>Spotlight Plan: Two category nominations, a digital nomination certificate, social media feature and website listing.<br>Elite Entry: Two category nominations, a digital nomination certificate, social media feature, priority website listing and an exclusive winner video byte/interview.</p></div></details>
-              <details class="faq__item"><summary>Can an organisation nominate in multiple award categories?</summary><div class="faq__a"><p>Yes. The Standard Entry plan includes one category nomination, while the Spotlight and Elite plans include two category nominations. Organisations can select the plan that best suits their nomination requirements.</p></div></details>
-              <details class="faq__item"><summary>Does submitting a nomination guarantee an award?</summary><div class="faq__a"><p>No. All nominations are subject to evaluation. Submitting a nomination does not guarantee an award or recognition. Final recognition is based on the evaluation process.</p></div></details>
-            </div>
-          </div></details>
-          <details class="faq-group"><summary><h3>Judging &amp; Evaluation Process</h3></summary><div class="acc__body">
-            <div class="faq" data-stagger>
-              <details class="faq__item"><summary>How are the award winners selected?</summary><div class="faq__a"><p>Nominations are evaluated based on their relevance, achievements, contributions and merit in the respective award categories. The selection process determines the organisations and individuals recognised for their contributions to the healthcare sector.</p></div></details>
-              <details class="faq__item"><summary>Will every organisation that submits a nomination receive an award?</summary><div class="faq__a"><p>No. Only nominations that meet the evaluation requirements will be considered for recognition. Participation in the nomination process does not guarantee selection as a winner.</p></div></details>
-            </div>
-          </div></details>
-          <details class="faq-group"><summary><h3>Application &amp; Payment Process</h3></summary><div class="acc__body">
-            <div class="faq" data-stagger>
-              <details class="faq__item"><summary>How can I submit a nomination?</summary><div class="faq__a"><p>Visit the official Awards &amp; Nominations page, explore the available nomination plans, select your preferred plan and click on Start a nomination. Submit your details, and the awards team will contact you with the next steps.</p></div></details>
-              <details class="faq__item"><summary>How can I inquire about nomination fees and payment?</summary><div class="faq__a"><p>You can contact the awards nomination team for details regarding nomination plans, applicable GST, payment and the next steps in the application process.</p></div></details>
-              <details class="faq__item"><summary>Whom should I contact for nomination-related queries?</summary><div class="faq__a"><p>For nomination-related enquiries, you can contact Simran Singh at +91 7838788554 or simran1@timesinternet.in.</p></div></details>
-            </div>
-          </div></details>
-          <details class="faq-group"><summary><h3>Participation &amp; Expo Opportunities</h3></summary><div class="acc__body">
-            <div class="faq" data-stagger>
-              <details class="faq__item"><summary>Can organisations participate without submitting an award nomination?</summary><div class="faq__a"><p>Yes. Organisations interested in summit participation, exhibition opportunities and other forms of association can connect with the organising team to explore the available options.</p></div></details>
-              <details class="faq__item"><summary>Can healthcare brands and organisations showcase their products and services?</summary><div class="faq__a"><p>Yes. Healthcare brands, hospitals, health-tech companies and other relevant organisations can enquire about exhibition and showcase opportunities to present their products, services and innovations.</p></div></details>
-              <details class="faq__item"><summary>How can I enquire about partnership and Expo opportunities?</summary><div class="faq__a"><p>For partnership, participation and Expo-related enquiries, you can contact Deepika Pawar at +91 9971129087 or deepika.pawar@timesinternet.in.</p></div></details>
-            </div>
-          </div></details>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+    <section class="section awards" id="awards" aria-labelledby="cats-h">
+      <div class="container">
 
-<footer class="site-footer" id="contact">
-  <div class="wrap">
-    <div class="cta-band">
-      <h2 class="reveal">Nominate before the ceremony on <time datetime="2027-01-30">30 Jan 2027</time></h2>
-      <p class="reveal" style="--i:1">Send the enquiry and the awards team will reach out with the nomination form.</p>
-      <a class="btn btn--gold reveal" style="--i:2" href="#nominate" data-track="register_close">Register now<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="touch">
-      <h3 class="touch__h">Get in touch</h3>
-      <p class="touch__sub">Reach the right team for your query.</p>
-      <ul class="touch__rows" data-stagger>
-        <li class="touch__row">
-          <div class="touch__title"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg><span>Sponsorship</span></div>
-          <div class="touch__people"><div class="touch__person"><b>Gaurav Vats</b><span><a href="tel:+919811573962">+91 9811573962</a><a href="mailto:gaurav.vats@timesinternet.in">gaurav.vats@timesinternet.in</a></span></div></div>
-        </li>
-        <li class="touch__row">
-          <div class="touch__title"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20v-1.2A4.8 4.8 0 0 1 7.8 14h2.4a4.8 4.8 0 0 1 4.8 4.8V20"/><path d="M15.5 4.9a3.2 3.2 0 0 1 0 6.2M18.5 14.3A4.8 4.8 0 0 1 21 18.5V20"/></svg><span>Expo and partnership</span></div>
-          <div class="touch__people"><div class="touch__person"><b>Deepika Pawar</b><span><a href="tel:+919971129087">+91 9971129087</a><a href="mailto:deepika.pawar@timesinternet.in">deepika.pawar@timesinternet.in</a></span></div></div>
-        </li>
-        <li class="touch__row">
-          <div class="touch__title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H5v1.5A3 3 0 0 0 8 10.5M16 6h3v1.5a3 3 0 0 1-3 3M12 13v4M8.5 20h7M10 17h4"/></svg><span>Awards</span></div>
-          <div class="touch__people">
-            <div class="touch__person"><b>Simran Singh</b><span><a href="tel:+917838788554">+91 7838788554</a><a href="mailto:simran1@timesinternet.in">simran1@timesinternet.in</a></span></div>
-            <div class="touch__person"><b>Sagun Kumari</b><span><a href="tel:+919304412377">+91 9304412377</a><a href="mailto:sagun.kumari@timesinternet.in">sagun.kumari@timesinternet.in</a></span></div>
+        <div class="award-categories">
+          <div class="cats-head" id="sectors">
+            <p class="eyebrow">Award categories</p>
+            <h2 class="cats-title" id="cats-h">Recognition Across the Healthcare Ecosystem</h2>
+            <p class="cats-sub" data-award-cat-summary></p>
           </div>
-        </li>
-      </ul>
-      <p class="touch__general">For any general query, write or call <b>Avnish Singh</b>: <a href="tel:+917669138964">+91 7669138964</a> &middot; <a href="mailto:avnish.singh@timesinternet.in">avnish.singh@timesinternet.in</a></p>
-    </div>
-    <div class="foot-brand">
-      <a href="https://timeslanguages.in/" aria-label="Times Internet Languages Live, all events"><img src="https://timeslanguages.in/assets/timeslang/assets/langlive.png" onerror="this.onerror=null;this.src='img/langlive-fallback.webp'" width="517" height="323" alt="Times Internet Languages Live" loading="lazy" decoding="async"></a>
-      <p>Presented by Maharashtra Times and Times Internet Languages Live.</p>
-    </div>
-    <div class="legal">
-      <span>&copy; 2027 Times Internet Limited &nbsp; <a href="https://timeslanguages.in/privacypolicy">Privacy Policy</a> <a href="awards/tnc/index.html">Awards Terms and Conditions</a> <a href="https://timeslanguages.in/cancellationpolicy">Cancellation Policy</a></span>
-      <p>Maharashtra Times Swasthya Sangam Awards is an initiative by Times Internet. Nominations are subject to evaluation. This is not an assurance of any award or recognition.</p>
-    </div>
-  </div>
-</footer>
+          <div class="award-cat-root" data-award-categories data-event-key="MAHARASHTRA_TIMES_SWASTHYA_SANGAM_2026"
+            aria-live="polite" aria-busy="true">
+            <div class="award-cat-status" data-award-cat-status>
+              <span class="award-cat-spinner" aria-hidden="true"></span>
+              <p>Loading award categories…</p>
+            </div>
+          </div>
+        </div>
 
-<div class="actionbar"><a class="btn btn--primary btn--block" href="#nominate" data-track="register_bar">Register now<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+    </section>
 
-<!-- MVP confirmation (see js/site.js). TODO(backend): in production this opens only after the server answers 2xx. -->
-<dialog class="dlg" id="ss-thanks" aria-labelledby="ss-thanks-h">
-  <div class="dlg__tick" aria-hidden="true"></div>
-  <h2 id="ss-thanks-h">Thank you, <span data-fill="name"></span>.</h2>
-  <p data-fill="what"></p>
-  <dl data-fill="summary" hidden></dl>
-  <p>For any query, contact Simran Singh at <a class="link" href="tel:+917838788554">+91 7838788554</a>.</p>
-  <div class="btn-row"><button class="btn btn--primary" type="button" data-close>Close</button></div>
-</dialog>
+      <section class="section alt" id="eligibility" aria-labelledby="eligibility-h">
+        <div class="container">
+          <div class="prose">
+            <header class="sec-head">
+              <p class="eyebrow">Eligibility</p>
+              <h2 id="eligibility-h">Eligibility Criteria</h2>
+              <p class="lead">Please review the requirements below before submitting a nomination.</p>
+            </header>
+            <div class="el-list">
+            <details class="el-acc" open><summary><h3>Organisation &amp; operational requirements</h3></summary><div class="el-body">
+            <ul class="plain">
+              <li>The participating organisation must have a minimum of 3 completed years of continuous, active
+                operations in Maharashtra, India, as of 31 March 2026. This applies to all organisational nominees,
+                including startups, and is measured from the commencement of active operations, not merely the date
+                of incorporation.</li>
+              <li>The participating organisation must be legally registered in Maharashtra and submit applicable
+                documentary evidence.</li>
+              <li>The nominee must also hold the licences, registrations or authorisations applicable to the services
+                or activities entered.</li>
+              <li>The nominated initiative, product, technology, solution or program should have been implemented,
+                commercialised, piloted or demonstrated measurable impact between 1 April 2024 and 31 March 2026. If
+                launched earlier, the nominee must clearly demonstrate significant progress, scale-up, innovation or
+                measurable impact during the eligibility period.</li>
+            </ul>
+            </div></details>
+            <details class="el-acc"><summary><h3>Category-specific experience requirements</h3></summary><div class="el-body">
+            <p>Unless stated otherwise, experience is measured as of 31 March 2026.</p>
+            <ul class="plain">
+              <li><strong>Healthcare Institution of the Year</strong> — the participating hospital must have a
+                minimum of 5 completed years of continuous, active healthcare operations.</li>
+              <li><strong>Clinical Excellence Award</strong> — the nominee must have a minimum of 5 completed years
+                of clinical practice relevant to the nominated specialty.</li>
+              <li><strong>Nursing Excellence Award</strong> — the nominee must have a minimum of 3 completed years of
+                relevant nursing practice.</li>
+              <li><strong>Healthcare Leadership Award</strong> — the nominee must have a minimum of 10 completed
+                years of relevant healthcare leadership experience.</li>
+              <li><strong>Yoga Practitioner of the Year</strong> — the nominee must have a minimum of 3 completed
+                years of relevant professional yoga practice.</li>
+              <li><strong>Nutrition &amp; Public Health Leadership Award</strong> — the nominee must have a minimum of
+                3 completed years of relevant professional work in nutrition or public health.</li>
+              <li><strong>Excellence in Psychological Care</strong> — the nominee must have a minimum of 3 completed
+                years of relevant psychological-care practice.</li>
+              <li><strong>AYUSH Leadership Award</strong> — the nominee must have a minimum of 3 completed years of
+                relevant practice or professional work in the nominated AYUSH discipline.</li>
+              <li><strong>Dietitian of the Year</strong> — the nominee must have a minimum of 3 completed years of
+                relevant clinical dietetics or clinical nutrition practice.</li>
+              <li><strong>Emerging Hospital of the Year</strong> — the nominated organisation must have completed at
+                least 3 years and no more than 5 years of active hospital operations.</li>
+            </ul>
+            </div></details>
+            <details class="el-acc"><summary><h3>Participant eligibility</h3></summary><div class="el-body">
+            <ul class="plain">
+              <li>The participant should be 18 years of age to participate in the Awards.</li>
+              <li>An individual nominee should be an Indian citizen currently residing in India, and legally eligible
+                to work in India.</li>
+              <li>An organisation cannot participate on behalf of its sister units, parent organisation or other
+                organisations under the parent organisation.</li>
+            </ul>
+            </div></details>
+            <details class="el-acc"><summary><h3>Governing terms</h3></summary><div class="el-body">
+            <ul class="plain">
+              <li>Participation in the awards is subject to the defined terms and conditions.</li>
+              <li>The award categories may be changed, modified, split, merged, increased or cancelled by the Awards
+                Management and/or Jury based on the number of entries received in any category and the quality of the
+                entries. This decision is final, non-contestable and binding on all participants; the Awards
+                management will not entertain queries on this.</li>
+              <li>If at any time, including after the conclusion of the Award ceremony, any information provided by a
+                participant is found to be incorrect in any manner, the participant will be liable to be disqualified
+                and/or required to return the Award.</li>
+            </ul>
+            </div></details>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <section class="section" id="why-nominate" aria-labelledby="why-h">
+        <div class="container">
+          <header class="sec-head">
+            <p class="eyebrow">Why nominate</p>
+            <h2 id="why-h">Why Nominate?</h2>
+          </header>
+          <ol class="themes themes-4">
+            <li><span class="num">1</span>
+              <h3>Recognition for Healthcare Excellence</h3>
+              <p>Gain recognition for your contribution to healthcare through Maharashtra Times, celebrating
+                excellence in clinical care, patient outcomes, medical expertise and institutional performance.</p>
+            </li>
+            <li><span class="num">2</span>
+              <h3>Connect with Healthcare Decision-Makers</h3>
+              <p>Engage with leading doctors, hospital administrators, healthcare entrepreneurs, pharmaceutical
+                leaders, medical researchers and policymakers driving advancements across the healthcare
+                ecosystem.</p>
+            </li>
+            <li><span class="num">3</span>
+              <h3>Showcase Medical Innovation and Impact</h3>
+              <p>Highlight your achievements in advanced treatments, diagnostic capabilities, medical technology,
+                patient care, preventive healthcare and innovations that are transforming healthcare delivery.</p>
+            </li>
+            <li><span class="num">4</span>
+              <h3>Build Trust and Strengthen Healthcare Credibility</h3>
+              <p>Enhance your professional and institutional reputation through industry recognition, while
+                showcasing your commitment to quality healthcare, patient safety, accessibility and better health
+                outcomes.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+    <section class="section alt" id="pricing" aria-labelledby="pricing-h">
+      <div class="container">
+        <div class="pricing">
+          <header class="sec-head">
+            <p class="eyebrow">Nomination fee</p>
+            <h2 id="pricing-h">Choose your nomination plan</h2>
+            <p class="lead">Prices are exclusive of GST.</p>
+          </header>
+          
+            <div class="plans">
+              <article class="plan" data-plan="standard" data-pcode="mt_health_std_plan">
+                <h3 class="plan-name">Standard Entry</h3>
+                <p class="plan-offer" hidden>Early Bird Offer</p>
+                <p class="plan-price" data-price-box aria-live="polite"><span class="plan-loading">Loading
+                    price&hellip;</span></p>
+                <ul class="plan-list">
+                  <li>1 Category Nomination</li>
+                  <li>Listing on Official Awards Website</li>
+                </ul>
+                <a class="btn btn-primary" href="#enquire" data-open-enquiry>Enquire now</a>
+              </article>
+              <article class="plan" data-plan="spotlight" data-pcode="mt_health_spot_plan">
+                <h3 class="plan-name">Spotlight Plan</h3>
+                <p class="plan-offer" hidden>Early Bird Offer</p>
+                <p class="plan-price" data-price-box aria-live="polite"><span class="plan-loading">Loading
+                    price&hellip;</span></p>
+                <ul class="plan-list">
+                  <li>2 Category Nominations</li>
+                  <li>Digital Nomination Certificate</li>
+                  <li>Social Media Feature (LinkedIn, Instagram, Meta &amp; X)</li>
+                  <li>Listing on Official Awards Website</li>
+                </ul>
+                <a class="btn btn-primary" href="#enquire" data-open-enquiry>Enquire now</a>
+              </article>
+              <article class="plan" data-plan="elite" data-pcode="mt_health_elite_plan">
+                <h3 class="plan-name">Elite Entry</h3>
+                <p class="plan-offer" hidden>Early Bird Offer</p>
+                <p class="plan-price" data-price-box aria-live="polite"><span class="plan-loading">Loading
+                    price&hellip;</span></p>
+                <ul class="plan-list">
+                  <li>2 Category Nominations</li>
+                  <li>Digital Nomination Certificate</li>
+                  <li>Social Media Feature (LinkedIn, Instagram, Meta &amp; X)</li>
+                  <li>Priority Listing on Official Awards Website</li>
+                  <li>Winner Exclusive Video Byte / Interview</li>
+                </ul>
+                <a class="btn btn-primary" href="#enquire" data-open-enquiry>Enquire now</a>
+              </article>
+            </div>
+            <p class="disclaimer">Maharashtra Times Swasthya Sangam Awards is an initiative by Times Internet.
+              Nominations are subject to evaluation. This is not an assurance of any award or recognition.</p>
+        </div>
+      </div>
+    </section>
+
+      <section class="section" id="judging" aria-labelledby="judging-h">
+        <div class="container">
+          <header class="sec-head">
+            <p class="eyebrow">How winners are chosen</p>
+            <h2 id="judging-h">The Judging Process</h2>
+          </header>
+          <ol class="themes themes-2">
+            <li><span class="num">1</span>
+              <h3>Official Tabulator Review</h3>
+              <p>Entries first undergo preliminary screening by independent official tabulators for completeness,
+                eligibility, and compliance.</p>
+            </li>
+            <li><span class="num">2</span>
+              <h3>Expert Jury Evaluation</h3>
+              <p>Shortlisted entries advance to the distinguished jury for final assessment based on innovation,
+                impact, and excellence.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section alt" id="faq" aria-labelledby="faq-h">
+        <div class="container">
+          <header class="sec-head">
+            <p class="eyebrow">FAQs</p>
+            <h2 id="faq-h">Frequently asked questions</h2>
+          </header>
+          <div class="faq faq-groups">
+            <details class="faq-grp" open><summary><h3>General Information</h3></summary><div class="faq-grp-body">
+            <details>
+              <summary>
+                <h3>What is Maharashtra Times Swasthya Sangam 2027?</h3>
+              </summary>
+              <p>Maharashtra Times Swasthya Sangam 2027 is a healthcare summit, expo, masterclass and awards
+                initiative presented by Maharashtra Times and Times Internet Languages Live. It brings together
+                healthcare professionals, hospitals, industry leaders, innovators and organisations to exchange
+                knowledge, explore advancements and recognise excellence in healthcare.</p>
+            </details>
+            <details>
+              <summary>
+                <h3>Who can participate in Swasthya Sangam 2027?</h3>
+              </summary>
+              <p>Hospitals, doctors, healthcare professionals, medical institutions, healthcare brands, health-tech
+                companies, startups, medical-device manufacturers and organisations associated with the healthcare
+                and wellness sectors can explore participation opportunities.</p>
+            </details>
+            <details>
+              <summary>
+                <h3>Who can submit nominations for the Swasthya Sangam Awards?</h3>
+              </summary>
+              <p>Hospitals, doctors, healthcare professionals, healthcare organisations, medical institutions,
+                startups and brands can submit nominations under the relevant award categories, subject to the
+                applicable eligibility requirements.</p>
+            </details>
+            <details>
+              <summary>
+                <h3>What are the different opportunities available at Swasthya Sangam?</h3>
+              </summary>
+              <p>Swasthya Sangam offers opportunities to participate in the awards, explore exhibition and showcase
+                opportunities, and engage through summit and masterclass-related participation. Organisations can
+                connect with the organising team to understand the available opportunities.</p>
+            </details>
+            </div></details>
+            <details class="faq-grp" open><summary><h3>Nomination &amp; Qualification</h3></summary><div class="faq-grp-body">
+            <details>
+              <summary>
+                <h3>Is there a fee for submitting nominations?</h3>
+              </summary>
+              <p>Yes. Three nomination plans are available — Standard Entry, Spotlight Plan and Elite Entry, each
+                with early-bird and actual pricing exclusive of GST. See the <a href="#pricing">nomination
+                  plans</a> above for current pricing and what each plan includes.</p>
+            </details>
+            <details>
+              <summary>
+                <h3>What is the difference between the available nomination plans?</h3>
+              </summary>
+              <ul class="plain">
+                <li><strong>Standard Entry</strong>: One category nomination and listing on the official Awards
+                  website.</li>
+                <li><strong>Spotlight Plan</strong>: Two category nominations, a digital nomination certificate,
+                  social media feature and website listing.</li>
+                <li><strong>Elite Entry</strong>: Two category nominations, a digital nomination certificate,
+                  social media feature, priority website listing and an exclusive winner video byte/interview.</li>
+              </ul>
+            </details>
+            <details>
+              <summary>
+                <h3>Can an organisation nominate in multiple award categories?</h3>
+              </summary>
+              <p>Yes. The Standard Entry plan includes one category nomination, while the Spotlight and Elite plans
+                include two category nominations. Organisations can select the plan that best suits their
+                nomination requirements.</p>
+            </details>
+            <details>
+              <summary>
+                <h3>Does submitting a nomination guarantee an award?</h3>
+              </summary>
+              <p>No. All nominations are subject to evaluation. Submitting a nomination does not guarantee an award
+                or recognition. Final recognition is based on the evaluation process.</p>
+            </details>
+            </div></details>
+            <details class="faq-grp"><summary><h3>Judging &amp; Evaluation Process</h3></summary><div class="faq-grp-body">
+            <details>
+              <summary>
+                <h3>How are the award winners selected?</h3>
+              </summary>
+              <p>Nominations are evaluated based on their relevance, achievements, contributions and merit in the
+                respective award categories. The selection process determines the organisations and individuals
+                recognised for their contributions to the healthcare sector.</p>
+            </details>
+            <details>
+              <summary>
+                <h3>Will every organisation that submits a nomination receive an award?</h3>
+              </summary>
+              <p>No. Only nominations that meet the evaluation requirements will be considered for recognition.
+                Participation in the nomination process does not guarantee selection as a winner.</p>
+            </details>
+            </div></details>
+            <details class="faq-grp"><summary><h3>Application &amp; Payment Process</h3></summary><div class="faq-grp-body">
+            <details>
+              <summary>
+                <h3>How can I submit a nomination?</h3>
+              </summary>
+              <p>Visit the official Awards &amp; Nominations page, explore the available nomination plans, select
+                your preferred plan and click on the Nominate Now option. Submit your details, and the awards team
+                will contact you with the next steps.</p>
+            </details>
+            <details>
+              <summary>
+                <h3>How can I inquire about nomination fees and payment?</h3>
+              </summary>
+              <p>You can contact the awards nomination team for details regarding nomination plans, applicable
+                GST, payment and the next steps in the application process.</p>
+            </details>
+            <details>
+              <summary>
+                <h3>Whom should I contact for nomination-related queries?</h3>
+              </summary>
+              <p>For nomination-related enquiries, you can contact Simran Singh at <a href="tel:+917838788554">+91
+                  7838788554</a> or <a href="mailto:simran1@timesinternet.in">simran1@timesinternet.in</a>.</p>
+            </details>
+            </div></details>
+            <details class="faq-grp"><summary><h3>Participation &amp; Expo Opportunities</h3></summary><div class="faq-grp-body">
+            <details>
+              <summary>
+                <h3>Can organisations participate without submitting an award nomination?</h3>
+              </summary>
+              <p>Yes. Organisations interested in summit participation, exhibition opportunities and other forms of
+                association can connect with the organising team to explore the available options.</p>
+            </details>
+            <details>
+              <summary>
+                <h3>Can healthcare brands and organisations showcase their products and services?</h3>
+              </summary>
+              <p>Yes. Healthcare brands, hospitals, health-tech companies and other relevant organisations can
+                enquire about exhibition and showcase opportunities to present their products, services and
+                innovations.</p>
+            </details>
+            <details>
+              <summary>
+                <h3>How can I enquire about partnership and Expo opportunities?</h3>
+              </summary>
+              <p>For partnership, participation and Expo-related enquiries, you can contact Deepika Pawar at <a
+                  href="tel:+919971129087">+91 9971129087</a> or <a
+                  href="mailto:deepika.pawar@timesinternet.in">deepika.pawar@timesinternet.in</a>.</p>
+            </details>
+            </div></details>
+          </div>
+        </div>
+      </section>
+
+    <section class="section ct-section" id="contact" aria-labelledby="contact-h">
+      <div class="container">
+        <div class="ct-panel">
+          <header class="ct-head">
+            <h2 id="contact-h">Contact</h2>
+            <p>Reach the right team for your query.</p>
+          </header>
+          <div class="ct-rows"><article class="ct-row"><h3 class="ct-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7M10 17h4"/></svg><span>Awards</span></h3><div class="ct-people"><div class="ct-person"><p class="ct-name">Simran Singh</p><p class="ct-links"><a href="tel:+917838788554">+91 7838788554</a><a href="mailto:simran1@timesinternet.in">simran1@timesinternet.in</a></p></div><div class="ct-person"><p class="ct-name">Sagun Kumari</p><p class="ct-links"><a href="tel:+919304412377">+91 9304412377</a><a href="mailto:sagun.kumari@timesinternet.in">sagun.kumari@timesinternet.in</a></p></div></div></article></div>
+          
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <dialog class="nom-dialog" id="enquire-dialog" aria-labelledby="enq-title">
+    <div class="nom-bar" aria-hidden="true"></div>
+    <button class="nom-close" type="button" data-close aria-label="Close">&times;</button>
+    <header class="nom-head">
+      <img class="nom-logo" src="https://static.langimg.com/photo/135920940.cms?width=480&amp;resizemode=4"
+        alt="Maharashtra Times Swasthya Sangam 2027" width="480" height="339" loading="lazy" decoding="async" />
+      <p class="eyebrow">Enquiry</p>
+      <h2 id="enq-title">Enquire about Swasthya Sangam 2027</h2>
+      <p>Share your details and our team will get in touch with you.</p>
+    </header>
+    <!-- Fields come from the live EventHub form "maharashtra-s-health-award"
+         via EventFormRenderer (script.js). Enquiry only: no plan/payment here. -->
+    <form class="nom-form efr-form" id="mt-health-enquiry" data-event-form data-form-code="maharashtra-s-health-award"
+      data-form-type="enquiry" aria-label="Enquire Now" novalidate>
+      <div class="efr-fields" data-form-fields></div>
+      <p class="efr-form-error" data-form-error role="alert" hidden></p>
+      <button class="btn btn-primary" type="submit" style="margin-top: 20px; width: 100%;">Enquire Now</button>
+      <div class="form-success" data-form-success role="status" aria-live="polite" hidden>
+        <span class="form-success-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6 9 17l-5-5"></path>
+          </svg>
+        </span>
+        <h3>Thank you!</h3>
+        <p>Your enquiry for Swasthya Sangam 2027 has been received. Our team will connect with you soon.</p>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="nom-dialog" id="nominate-dialog" aria-labelledby="nom-title">
+    <div class="nom-bar" aria-hidden="true"></div>
+    <button class="nom-close" type="button" data-close aria-label="Close">&times;</button>
+
+    <div data-view="form">
+      <header class="nom-head">
+        <img class="nom-logo" src="https://static.langimg.com/photo/135920940.cms?width=480&amp;resizemode=4"
+          alt="Maharashtra Times Swasthya Sangam 2027" width="480" height="339" loading="lazy" decoding="async" />
+        <p class="eyebrow">Awards</p>
+        <h2 id="nom-title">Nomination Enquiry for Swasthya Sangam 2027</h2>
+        <p>Share your details and our awards team will get in touch with nomination information.</p>
+      </header>
+      <!-- Fields (incl. mobile OTP and consents) come from the live EventHub
+           form "maharashtra-s-health-award" via EventFormRenderer (nomination.js). -->
+      <form class="nom-form" id="mt-health-award" data-form-code="maharashtra-s-health-award"
+        aria-label="Nomination enquiry" novalidate>
+        <div class="efr-fields" data-form-fields></div>
+        <p class="form-note nom-note" role="alert" aria-live="polite"></p>
+        <div class="nom-actions">
+          <button class="btn btn-primary nom-submit" type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+
+    <div data-view="pay" hidden>
+      <header class="nom-head">
+        <img class="nom-logo" src="https://static.langimg.com/photo/135920940.cms?width=480&amp;resizemode=4"
+          alt="Maharashtra Times Swasthya Sangam 2027" width="480" height="339" loading="lazy" decoding="async" />
+        <p class="eyebrow">Step 2 of 2</p>
+        <h2>Complete your payment</h2>
+        <p>Review your plan and pay the nomination fee to secure your entry.</p>
+      </header>
+      <dl class="nom-summary">
+        <div>
+          <dt>Plan</dt>
+          <dd data-fill="plan"></dd>
+        </div>
+        <div>
+          <dt>Nomination fee</dt>
+          <dd data-fill="subtotal"></dd>
+        </div>
+        <div>
+          <dt data-fill="gstlabel">GST</dt>
+          <dd data-fill="gst"></dd>
+        </div>
+        <div class="nom-total">
+          <dt>Total payable</dt>
+          <dd data-fill="total"></dd>
+        </div>
+      </dl>
+      <p class="form-note nom-note" role="alert" aria-live="polite" data-pay-note></p>
+      <div class="nom-actions">
+        <button class="btn btn-primary" type="button" data-pay></button>
+        <button class="btn btn-ghost" type="button" data-back>Back</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="nom-dialog nom-confirm" id="confirm-dialog" aria-labelledby="conf-title">
+    <div class="nom-bar" aria-hidden="true"></div>
+    <button class="nom-close" type="button" data-close aria-label="Close">&times;</button>
+    <div class="conf-body">
+      <img class="nom-logo" src="https://static.langimg.com/photo/135920940.cms?width=480&amp;resizemode=4"
+        alt="Maharashtra Times Swasthya Sangam 2027" width="480" height="339" loading="lazy" decoding="async" />
+      <div class="conf-tick" aria-hidden="true"></div>
+      <h2 id="conf-title">Thank you, <span data-fill="first"></span>!</h2>
+      <p class="conf-lead">Your nomination enquiry has been received. Our awards team will reach out to you shortly with
+        the next steps.</p>
+      <dl class="nom-summary conf-summary">
+        <div>
+          <dt>Nominee</dt>
+          <dd data-fill="nominee"></dd>
+        </div>
+        <div>
+          <dt>We will reach you on</dt>
+          <dd data-fill="reach"></dd>
+        </div>
+      </dl>
+      <p class="conf-help">For any queries, contact <strong>Simran Singh</strong> at <a href="tel:+917838788554">+91
+          7838788554</a>.</p>
+      <button class="btn btn-primary conf-done" type="button" data-close>Done</button>
+    </div>
+  </dialog>
+
+  <dialog class="nom-dialog nom-confirm" id="payment-status-dialog" aria-labelledby="pay-status-title"
+    aria-describedby="pay-status-copy">
+    <div class="nom-bar" aria-hidden="true"></div>
+    <button class="nom-close" type="button" data-close aria-label="Close">&times;</button>
+    <div class="conf-body">
+      <img class="nom-logo" src="https://static.langimg.com/photo/135920940.cms?width=480&amp;resizemode=4"
+        alt="Maharashtra Times Swasthya Sangam 2027" width="480" height="339" loading="lazy" decoding="async" />
+      <div class="conf-tick" aria-hidden="true"></div>
+      <h2 id="pay-status-title" data-fill="title"></h2>
+      <p class="conf-lead" id="pay-status-copy" data-fill="copy"></p>
+      <p class="conf-help">For any queries, contact <strong>Simran Singh</strong> at <a href="tel:+917838788554">+91
+          7838788554</a>.</p>
+      <div class="conf-actions">
+        <button class="btn btn-primary" type="button" data-retry hidden>Try again</button>
+        <button class="btn btn-ghost conf-done" type="button" data-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+<div class="m-bar" data-mbar><a class="btn btn-gold" href="#enquire" data-open-enquiry>Enquire Now</a><a class="btn btn-primary" href="https://timeslanguages.in/maharashtra-times-swasthya-sangam-2027/nominations/home" target="_blank" rel="noopener">Nominate Now</a></div>
+<script>(function(){var b=document.querySelector('[data-mbar]'),h=document.querySelector('.hero-lite');if(!b||!h||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){b.classList.toggle('is-on',!e[0].isIntersecting)}).observe(h)})();</script>
+  <footer class="footer">
+    <div class="container">
+      <div class="logos logos-light">
+        <img loading="lazy" src="https://static.langimg.com/photo/135357500.cms" alt="Times Internet Languages Live"
+          width="170" height="106" />
+        <span class="logos-x" aria-hidden="true">|</span>
+        <img loading="lazy" src="https://static.langimg.com/photo/135357496.cms" alt="Maharashtra Times" width="597"
+          height="123" />
+      </div>
+      <p>Presented by Maharashtra Times and Times Internet Languages Live</p>
+      <p class="legal disclaimer">Maharashtra Times Swasthya Sangam Awards is an initiative by Times Internet.
+        Nominations are subject to evaluation. This is not an assurance of any award or recognition.</p>
+      <p class="legal">
+        <a href="https://timeslanguages.in/privacypolicy" target="_blank" rel="noopener">Privacy Policy</a> · <a
+          href="https://timeslanguages.in/cancellationpolicy" target="_blank" rel="noopener">Cancellation Policy</a> ·
+        <a href="https://timeslanguages.in/mt-health/award/tnc" target="_blank" rel="noopener">Terms &amp;
+          Conditions</a>
+      </p>
+      <p class="legal">© 2027 Times Internet Limited</p>
+      <!-- href="https://timeslanguages.in/termsandconditions" target="_blank" rel="noopener">Terms and Conditions</a> · <a -->
+    </div>
+  </footer>
+
+  <script defer
+    src="https://langstatic.indiatimes.com/assets/script/common/loginSupporter-v3.js"></script>
+  <script defer src="https://timeslanguages.in/assets/tfm/eventFormRenderer.js?v=1"></script>
+  <script defer src="assets/script.js"></script>
+  <script defer src="assets/awardCategories.js"></script>
+  <script defer src="assets/nomination.js"></script>
 </body>
+
 </html>
