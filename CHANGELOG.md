@@ -41,3 +41,33 @@ title / meta description / Open Graph / JSON-LD were updated.
 
 - Removed `robots.txt`, `sitemap.xml` and `llms.txt`: after editorial approval the page is hosted at https://timeslanguages.in/mthealth/, and timeslanguages.in already serves these files. `.nojekyll` stays for the GitHub Pages MVP.
 - At go-live only the base URL changes (canonical, og:url, og:image, Event JSON-LD urls). All page links, images, fonts and scripts are relative, so the page works from the `/mthealth/` sub-path as is. The only root-absolute paths are the three placeholder form actions (`/api/TODO-backend-...`), which the backend team replaces.
+
+## Unreleased: Awards page content and Awards Terms & Conditions
+
+- Awards page: added the Overview, full Eligibility criteria, Why Nominate, the two-step Judging Process, the Early Bird Offer label on discounted plans, the exact initiative disclaimer, and the full grouped FAQ (16 questions in 5 groups, written from one source for the page and the FAQPage JSON-LD). The "Meet the jury / jury announced soon" line is removed because the supplied content no longer has it. The FAQ answer "How can I submit a nomination?" says "Start a nomination" (the button on this page) instead of "Nominate Now".
+- New page `awards/tnc/index.html` (final address https://timeslanguages.in/mthealth/awards/tnc): the Awards Terms & Conditions, text word for word, with a contents list. Awards only: the nomination form's consent link, the Awards footer and the Governing terms rule point to it; the Summit page keeps the event Terms and Conditions at timeslanguages.in. The "Website" definition in the supplied text reads `timeslanguages.in/mt-health` and was left as supplied.
+- Footer copyright now reads "(c) 2027 Times Internet Limited" on both pages.
+- `scripts/check-seo-sync.mjs` covers the new page and ignores the eligibility rule dates (31 March 2026, 1 April 2024), which are rules, not event dates.
+
+## Unreleased: Summit page content check
+
+- Compared against the previous Summit page and filled the gaps: hero Date/Venue facts and the "An initiative by Times Internet Languages Live" credit (also on the Awards hero); the full About text with the supplied heading, event line and all three paragraphs; "Who should attend" heading; the Awards teaser heading "Know someone who deserves to be seen?", the "N award categories across N segments" line and the segment list with category counts (from the API); "Join Maharashtra's Health Community"; labels "Full name", "Current city" and "Phone number" with a +91 prefix on all forms; "Be Part of the Sangam" with Ways to partner, Benefits and a "Talk to Our Team" button; "Frequently asked questions"; and "Reach the right team for your query." above the contact cards.
+- Left out on purpose: "Ticket types coming soon" (the two passes replace it), the marketing-updates checkbox (one required consent box covers registration and query contact), and "Jan 2027" (the date is 30 Jan 2027 everywhere).
+
+## Unreleased: accordions, tighter spacing, file:// and mobile fixes
+
+- Scripts load as classic `defer` scripts (a module script is blocked when a page is opened from disk, which silently disabled the burger menu, sticky bar and reveals). The Awards T&C links point at `awards/tnc/index.html` so they also work from disk, where a folder link shows a directory listing.
+- Eligibility cards and the five FAQ groups are accordions: closed by default except the first card, the first FAQ group and its first question.
+- Section, hero and footer spacing reduced; mobile nav and button tweaks.
+
+## Unreleased: lead-gen Awards form, journey order, console fixes
+
+- Awards: every "Start a nomination" / "Start with this plan" CTA (header, hero, plans, why, close, sticky bar) now reads "Register now" and opens a lead-gen enquiry form (name, email, phone, designation, organisation, consent). The plan, segment and description fields are removed. No "Register to attend" on Awards.
+- Section order by user journey. Awards: Overview, Why nominate, Categories, Eligibility, Process, Judging, Fees, Register, FAQ. Summit: About, Themes, Agenda, Who attends, Register, Awards, Partner, FAQ. Navbars follow the same order.
+- Categories: if the live API fails, the section shows "Award categories coming soon. Want to know more? Contact Simran Singh: +91 7838788554" (no stale copy).
+- Font is inlined in the CSS (data URI) and the preload removed: no CORS or preload errors when opened from disk. fonts/ removed.
+
+## Unreleased: header page links, mobile menu fix
+
+- Navbar first item is the current page (Awards on Awards, Summit on Summit). Switching pages and "All events" (timeslanguages.in) are separate header buttons; on phones and tablets they sit at the bottom of the menu. The full desktop header starts at 1180px.
+- Fixed the phone menu opening to an empty panel: the header's backdrop blur made it the containing block of the fixed menu. The blur is now desktop-only.

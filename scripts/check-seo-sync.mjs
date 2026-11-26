@@ -3,8 +3,9 @@ import { readFileSync } from 'node:fs';
 let bad = 0;
 const fail = m => { console.log('FAIL', m); bad++; };
 const txt = h => h.replace(/<[^>]+>/g, ' ').replace(/&middot;/g, '·').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
-for (const f of ['index.html', 'awards.html']) {
+for (const f of ['index.html', 'awards.html', 'awards/tnc/index.html']) {
   const s = readFileSync(f, 'utf8');
+  const doc = f.includes('/tnc/');   // a legal document: no Event or FAQ markup expected
   const title = (s.match(/<title>(.*?)<\/title>/) || [])[1];
   const og = n => (s.match(new RegExp(`<meta property="og:${n}" content="(.*?)"`)) || [])[1];
   const desc = (s.match(/<meta name="description" content="(.*?)"/) || [])[1];
@@ -18,7 +19,8 @@ for (const f of ['index.html', 'awards.html']) {
   if (!/^https:\/\//.test(og('image') || '')) fail(`${f}: og:image is not an absolute URL`);
   const blocks = [...s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
   const ev = blocks.find(b => b['@type'] === 'Event'), faq = blocks.find(b => b['@type'] === 'FAQPage');
-  if (!ev) fail(`${f}: no Event JSON-LD`);
+  if (doc) { /* no Event expected */ }
+  else if (!ev) fail(`${f}: no Event JSON-LD`);
   else {
     if (ev.startDate !== '2027-01-30' || ev.endDate !== '2027-01-30') fail(`${f}: Event date is not 2027-01-30`);
     if (!/2027/.test(ev.name)) fail(`${f}: Event name lacks 2027`);
@@ -29,15 +31,17 @@ for (const f of ['index.html', 'awards.html']) {
     }
   }
   // FAQ: every JSON-LD Q&A must appear verbatim in the visible FAQ, and vice versa
-  const vis = [...s.matchAll(/<details class="faq__item"><summary>(.*?)<\/summary><div class="faq__a"><p>(.*?)<\/p><\/div><\/details>/g)].map(m => [txt(m[1]), txt(m[2])]);
-  if (!faq) fail(`${f}: no FAQPage JSON-LD`);
+  const vis = [...s.matchAll(/<details class="faq__item"(?: open)?><summary>(.*?)<\/summary><div class="faq__a"><p>(.*?)<\/p><\/div><\/details>/g)].map(m => [txt(m[1]), txt(m[2])]);
+  if (doc) { /* no FAQ expected */ }
+  else if (!faq) fail(`${f}: no FAQPage JSON-LD`);
   else {
     const ld = faq.mainEntity.map(q => [q.name, q.acceptedAnswer.text]);
     if (ld.length !== vis.length) fail(`${f}: FAQ count JSON-LD ${ld.length} vs page ${vis.length}`);
     ld.forEach(([q, a], i) => { if (!vis[i] || vis[i][0] !== q || vis[i][1] !== a) fail(`${f}: FAQ ${i + 1} differs between JSON-LD and page ("${q}")`); });
   }
   // single source of truth for the date: no other year/date anywhere on the page
-  const body = s.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '');
+  // the eligibility section holds real rule dates (31 March 2026 etc.), which are not event dates
+  const body = s.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '').replace(/<section[^>]*id="eligibility"[\s\S]*?<\/section>/, '');
   (body.match(/\b20\d\d\b/g) || []).filter(y => y !== '2027').forEach(y => { if (!/MAHARASHTRA_TIMES_SWASTHYA_SANGAM_2026/.test(y)) fail(`${f}: stray year ${y}`); });
   (body.match(/\b\d{1,2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* 20\d\d/g) || []).filter(d => d !== '30 Jan 2027').forEach(d => fail(`${f}: other date "${d}"`));
   // no secrets

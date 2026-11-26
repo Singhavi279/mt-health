@@ -32,11 +32,10 @@
 <!-- TODO(analytics): GA4 snippet goes here (async, after the consent decision if one is required). No tracking is loaded in the MVP. -->
 
 <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__ssReady)document.documentElement.classList.add('no-reveal')},3000)</script>
-<link rel="preload" href="fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="img/event-logo.webp" fetchpriority="high">
 <link rel="preconnect" href="https://timeslanguages.in">
 <link rel="stylesheet" href="css/site.css">
-<script type="module" src="js/site.js"></script>
+<script defer src="js/site.js"></script>
 
 <script type="application/ld+json">
 {
@@ -93,13 +92,15 @@
       <img src="https://timeslanguages.in/assets/timeslang/assets/langlive.png" onerror="this.onerror=null;this.src='img/langlive-fallback.webp'" width="517" height="323" alt="Times Internet Languages Live" fetchpriority="low" decoding="async">
     </a>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="index.html" aria-current="page">Summit</a>
-      <a href="awards.html">Awards</a>
+      <a href="#top" aria-current="page">Summit</a>
+      <a href="#about">About</a>
       <a href="#agenda">Agenda</a>
+      <a href="#register">Passes</a>
       <a href="#partner">Partners</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
+      <div class="nav__more"><a class="btn btn--ghost" href="awards.html" data-track="switch_page">Awards page</a><a class="btn btn--ghost" href="https://timeslanguages.in" data-track="all_events">All events</a></div>
     </nav>
+    <div class="bar__links"><a class="btn btn--ghost" href="awards.html" data-track="switch_page">Awards page</a><a class="btn btn--ghost" href="https://timeslanguages.in" data-track="all_events">All events</a></div>
     <a class="btn btn--primary bar__cta" href="#register" data-track="register_nav">Register to attend</a>
     <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span></button>
   </div>
@@ -118,6 +119,8 @@
           <a class="btn btn--primary" href="#register" data-track="register_hero">Register to attend<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn--ghost" href="#agenda" data-track="agenda_hero">See the agenda</a>
         </div>
+        <dl class="facts rise" style="--i:4"><div><dt>Date</dt><dd><time datetime="2027-01-30">30 Jan 2027</time></dd></div><div><dt>Venue</dt><dd>Mumbai</dd></div></dl>
+        <p class="credit rise" style="--i:5">An initiative by <b>Times Internet Languages Live</b></p>
       </div>
       <!-- the event logo is the hero picture: the brand's own asset. Source: https://static.langimg.com/photo/135920940.cms (480px wide; self-hosted as WebP.
            TODO(content): a larger original would stay sharp on 2x screens and in the share image) -->
@@ -148,12 +151,14 @@
       <div class="split">
         <div>
           <p class="eyebrow reveal">About Swasthya Sangam</p>
-          <h2 id="about-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">One room for Maharashtra's health community</h2>
-          <p class="lead muted reveal" style="--i:2">The doctors who treat, the hospitals that build, the companies that innovate and the officials who enable rarely share a stage. Maharashtra Times created Swasthya Sangam to change that: one day in Mumbai with the Summit, Masterclasses, Expo and Awards under one roof.</p>
-          <p class="quote reveal" style="--i:3">Good health is built by many hands. Swasthya Sangam is where they finally meet.</p>
+          <h2 id="about-h" class="reveal" style="--i:1; margin-block: 1rem 1rem">Why we are bringing Maharashtra's health community into one room</h2>
+          <p class="meta reveal" style="--i:1">Maharashtra Times Swasthya Sangam 2027 &middot; <time datetime="2027-01-30">30 Jan 2027</time> &middot; Mumbai</p>
+          <p class="quote reveal" style="--i:2; margin-top: 0">Good health is built by many hands. Swasthya Sangam is where they finally meet.</p>
+          <p class="lead muted reveal" style="--i:3; margin-top: 1.5rem">The doctors who treat, the hospitals that build, the companies that innovate, the officials who enable and the families who depend on all of them rarely share a stage. Maharashtra Times created Swasthya Sangam to change that: one day in Mumbai, with the Summit, Masterclasses, Expo and Awards under one roof.</p>
+          <p class="reveal" style="--i:4; margin-top: 1rem">Every session is shaped by five ideas: People, Innovation, Access, Prevention and Impact. The aim is simple. Fewer speeches about healthcare, more answers someone can use on Monday morning.</p>
+          <p class="reveal" style="--i:5; margin-top: 1rem">We also want to celebrate the work that rarely makes the front page. Through the Swasthya Sangam Awards, we recognise the hospitals, doctors and health brands getting it right. If you know one, we want to hear about it.</p>
         </div>
-        <!-- TODO(content): stand-in photograph (Pexels, free licence). Replace with a photograph from a past Maharashtra Times event. -->
-        <figure class="photo photo--tall reveal" style="--i:2"><img src="img/about-audience-1000.webp" srcset="img/about-audience-560.webp 560w, img/about-audience-1000.webp 1196w" sizes="(min-width: 900px) 560px, 100vw" width="1196" height="1068" alt="A full auditorium listening to a speaker on stage" loading="lazy" decoding="async" data-source="stand-in" data-subject="conference audience"></figure>
+        <figure class="photo photo--tall reveal" style="--i:2"><img src="img/about-audience-1000.webp" srcset="img/about-audience-560.webp 560w, img/about-audience-1000.webp 1000w" sizes="(min-width: 900px) 560px, 100vw" width="1000" height="893" alt="An auditorium of Indian healthcare professionals listening to a keynote speaker on stage" loading="lazy" decoding="async" data-source="ai-generated" data-subject="conference audience"></figure>
       </div>
       <ul class="stats" data-stagger>
         <li><b data-count="1">1</b><span>day in Mumbai</span></li>
@@ -169,7 +174,6 @@
       <div class="head reveal">
         <p class="eyebrow">Five themes</p>
         <h2 id="themes-h">Ideas that guide every session</h2>
-        <p>Fewer speeches about healthcare, more answers someone can use on Monday morning.</p>
       </div>
       <ul class="themes" data-stagger>
         <li class="theme"><h3>People</h3><p>Putting patients, families and caregivers first.</p></li>
@@ -189,21 +193,20 @@
         <p><time datetime="2027-01-30">30 Jan 2027</time>, Mumbai. Session timings will be published here.</p>
       </div>
       <div class="cards4" data-stagger>
-        <!-- TODO(content): the four photographs below are stand-ins (Pexels, Unsplash). Replace with photographs from the real venue and past events. -->
         <article class="xcard">
-          <figure class="photo"><img src="img/agenda-summit-1000.webp" srcset="img/agenda-summit-560.webp 560w, img/agenda-summit-1000.webp 1000w" sizes="(min-width: 1100px) 280px, (min-width: 640px) 45vw, 100vw" alt="An audience watching a speaker present on a lit stage" width="1000" height="667" loading="lazy" decoding="async" data-source="stand-in" data-subject="conference stage"></figure>
+          <figure class="photo"><img src="img/agenda-summit-1000.webp" srcset="img/agenda-summit-560.webp 560w, img/agenda-summit-1000.webp 1000w" sizes="(min-width: 1100px) 280px, (min-width: 640px) 45vw, 100vw" alt="Two Indian healthcare leaders in a fireside chat on a lit conference stage" width="1000" height="667" loading="lazy" decoding="async" data-source="ai-generated" data-subject="conference stage"></figure>
           <div class="xcard__body"><span class="xcard__n" aria-hidden="true">1</span><h3>Summit</h3><p>Doctors, policymakers and industry leaders share what works across the five themes.</p></div>
         </article>
         <article class="xcard">
-          <figure class="photo"><img src="img/agenda-masterclass-1000.webp" srcset="img/agenda-masterclass-560.webp 560w, img/agenda-masterclass-1000.webp 1000w" sizes="(min-width: 1100px) 280px, (min-width: 640px) 45vw, 100vw" alt="An instructor in a white coat teaching medical students with a training model" width="1000" height="667" loading="lazy" decoding="async" data-source="stand-in" data-subject="medical training"></figure>
+          <figure class="photo"><img src="img/agenda-masterclass-1000.webp" srcset="img/agenda-masterclass-560.webp 560w, img/agenda-masterclass-1000.webp 1000w" sizes="(min-width: 1100px) 280px, (min-width: 640px) 45vw, 100vw" alt="A senior Indian doctor in a white coat teaching medical residents with an anatomical heart model" width="1000" height="667" loading="lazy" decoding="async" data-source="ai-generated" data-subject="medical training"></figure>
           <div class="xcard__body"><span class="xcard__n" aria-hidden="true">2</span><h3>Masterclasses</h3><p>Hands-on sessions that give you answers to use at work the next day.</p></div>
         </article>
         <article class="xcard">
-          <figure class="photo"><img src="img/agenda-expo-1000.webp" srcset="img/agenda-expo-560.webp 560w, img/agenda-expo-1000.webp 1000w" sizes="(min-width: 1100px) 280px, (min-width: 640px) 45vw, 100vw" alt="Visitors walking between stands in a large exhibition hall" width="1000" height="667" loading="lazy" decoding="async" data-source="stand-in" data-subject="exhibition hall"></figure>
+          <figure class="photo"><img src="img/agenda-expo-1000.webp" srcset="img/agenda-expo-560.webp 560w, img/agenda-expo-1000.webp 1000w" sizes="(min-width: 1100px) 280px, (min-width: 640px) 45vw, 100vw" alt="Indian doctors and healthcare executives walking between medtech booths in a modern exhibition hall" width="1000" height="667" loading="lazy" decoding="async" data-source="ai-generated" data-subject="exhibition hall"></figure>
           <div class="xcard__body"><span class="xcard__n" aria-hidden="true">3</span><h3>Expo</h3><p>Hospitals, pharma, MedTech and wellness brands on one floor. Stalls are open for booking.</p></div>
         </article>
         <article class="xcard">
-          <figure class="photo"><img src="img/agenda-awards-1000.webp" srcset="img/agenda-awards-560.webp 560w, img/agenda-awards-1000.webp 1000w" sizes="(min-width: 1100px) 280px, (min-width: 640px) 45vw, 100vw" alt="Gold trophies lined up on a table" width="1000" height="667" loading="lazy" decoding="async" data-source="stand-in" data-subject="award trophies"></figure>
+          <figure class="photo"><img src="img/agenda-awards-1000.webp" srcset="img/agenda-awards-560.webp 560w, img/agenda-awards-1000.webp 1000w" sizes="(min-width: 1100px) 280px, (min-width: 640px) 45vw, 100vw" alt="Gold and crystal healthcare award trophies lined up on a navy velvet table" width="1000" height="667" loading="lazy" decoding="async" data-source="ai-generated" data-subject="award trophies"></figure>
           <div class="xcard__body"><span class="xcard__n" aria-hidden="true">4</span><h3>Awards ceremony</h3><p>Winners of the Swasthya Sangam Awards are recognised in front of the whole community.</p></div>
         </article>
       </div>
@@ -215,8 +218,8 @@
     <div class="wrap">
       <div class="split split--img-left">
         <div>
-          <p class="eyebrow reveal">Who should attend</p>
-          <h2 id="attend-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Twelve kinds of people the day is built for</h2>
+          <p class="eyebrow reveal">Audience</p>
+          <h2 id="attend-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Who should attend</h2>
           <p class="lead muted reveal" style="--i:2; margin-bottom: 1.5rem">Anyone can register to attend. These are the people we expect in the room.</p>
           <ul class="chips" data-stagger>
             <li>Hospital owners and administrators</li><li>Doctors and specialists</li><li>Pharma and life sciences leaders</li><li>Diagnostics and lab heads</li>
@@ -225,31 +228,7 @@
           </ul>
           <div class="btn-row reveal"><a class="btn btn--primary" href="#register" data-track="register_attend">Register to attend<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
-        <!-- TODO(content): stand-in photograph (Unsplash). Replace with delegates at a past event. -->
-        <figure class="photo photo--ratio reveal" style="--i:1"><img src="img/attend-doctors-1000.webp" srcset="img/attend-doctors-560.webp 560w, img/attend-doctors-1000.webp 1000w" sizes="(min-width: 900px) 560px, 100vw" width="1000" height="667" alt="Two doctors in white coats reviewing a tablet together" loading="lazy" decoding="async" data-source="stand-in" data-subject="doctors"></figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="band band--navy band--wave" id="awards" aria-labelledby="awards-h">
-    <div class="wrap">
-      <div class="split">
-        <div>
-          <p class="eyebrow reveal">Swasthya Sangam Awards</p>
-          <h2 id="awards-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Nominate a hospital, doctor or health brand</h2>
-          <p class="lead reveal" style="--i:2; color: var(--muted); margin-bottom: 2rem">Nominations are open for hospitals, doctors and health brands across Maharashtra.</p>
-          <div class="btn-row reveal" style="--i:3">
-            <a class="btn btn--gold" href="awards.html#nominate" data-track="nominate_band">Start a nomination<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn--outline-inv" href="awards.html#categories" data-track="categories_band">See award categories</a>
-          </div>
-          <ul class="stats stats--inv stats--3" data-stagger>
-            <li hidden><b data-count="0" data-count-api="segments">0</b><span>segments</span></li>
-            <li hidden><b data-count="0" data-count-api="categories">0</b><span>award categories</span></li>
-            <li><b data-count="3">3</b><span>nomination plans</span></li>
-          </ul>
-        </div>
-        <!-- TODO(content): stand-in photograph (Pexels). Replace with last year's awards stage. -->
-        <figure class="photo photo--ratio reveal" style="--i:2"><img src="img/awards-trophy-1000.webp" srcset="img/awards-trophy-560.webp 560w, img/awards-trophy-1000.webp 1000w" sizes="(min-width: 900px) 560px, 100vw" width="1000" height="667" alt="A gold star trophy on a draped table at an awards event" loading="lazy" decoding="async" data-source="stand-in" data-subject="award trophy"></figure>
+        <figure class="photo photo--ratio reveal" style="--i:1"><img src="img/attend-doctors-1000.webp" srcset="img/attend-doctors-560.webp 560w, img/attend-doctors-1000.webp 1000w" sizes="(min-width: 900px) 560px, 100vw" width="1000" height="667" alt="Two Indian doctors in white coats reviewing a tablet together in a hospital corridor" loading="lazy" decoding="async" data-source="ai-generated" data-subject="doctors"></figure>
       </div>
     </div>
   </section>
@@ -259,8 +238,8 @@
       <div class="split split--wide-text">
         <div>
           <p class="eyebrow reveal">Register to attend</p>
-          <h2 id="register-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Registration for the summit</h2>
-          <p class="lead muted reveal" style="--i:2">Pick the pass that fits, then register with your details. Prices are after discount.</p>
+          <h2 id="register-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Join Maharashtra's Health Community</h2>
+          <p class="lead muted reveal" style="--i:2">Anyone can register to attend. Pick the pass that fits, then register with your details. Prices are after discount.</p>
           <ul class="checklist reveal" style="--i:3">
             <li>Session access with both passes</li>
             <li>Lunch and the networking arena with Premium</li>
@@ -298,7 +277,7 @@
               </div>
               <p class="err" id="r-pass-err" hidden>Choose a pass to continue.</p>
             </fieldset>
-            <div class="field"><label for="r-name">Name</label>
+            <div class="field"><label for="r-name">Full name</label>
               <input id="r-name" name="name" type="text" autocomplete="name" required aria-describedby="r-name-err">
               <p class="err" id="r-name-err" hidden>Write your full name.</p></div>
             <div class="field"><label for="r-org">Organisation</label>
@@ -307,14 +286,14 @@
             <div class="field"><label for="r-desig">Designation</label>
               <input id="r-desig" name="designation" type="text" autocomplete="organization-title" required aria-describedby="r-desig-err">
               <p class="err" id="r-desig-err" hidden>Write your designation, for example Medical Director.</p></div>
-            <div class="field"><label for="r-city">City</label>
+            <div class="field"><label for="r-city">Current city</label>
               <input id="r-city" name="city" type="text" autocomplete="address-level2" required aria-describedby="r-city-err">
-              <p class="err" id="r-city-err" hidden>Write the city you work or live in.</p></div>
+              <p class="err" id="r-city-err" hidden>Write your current city.</p></div>
             <div class="field"><label for="r-email">Email</label>
               <input id="r-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="r-email-err" data-summary-label="Email">
               <p class="err" id="r-email-err" hidden>Write an email address with an @, like name@example.com.</p></div>
-            <div class="field"><label for="r-mobile">Mobile</label>
-              <input id="r-mobile" name="mobile" type="tel" autocomplete="tel-national" inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10-digit mobile number" required aria-describedby="r-mobile-err" data-summary-label="Mobile">
+            <div class="field"><label for="r-mobile">Phone number</label>
+              <div class="phone"><span aria-hidden="true">+91</span><input id="r-mobile" name="mobile" type="tel" autocomplete="tel-national" inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10-digit mobile number" required aria-describedby="r-mobile-err" data-summary-label="Mobile"></div>
               <p class="err" id="r-mobile-err" hidden>Write a 10-digit mobile number that starts with 6, 7, 8 or 9.</p></div>
             <div class="consent full">
               <label><input type="checkbox" name="terms" value="yes" required aria-describedby="r-terms-err"><span>I agree to the <a href="https://timeslanguages.in/termsandconditions" target="_blank" rel="noopener">Terms and Conditions</a>, <a href="https://timeslanguages.in/privacypolicy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://timeslanguages.in/cancellationpolicy" target="_blank" rel="noopener">Cancellation Policy</a>, and to be contacted on WhatsApp, email or phone about my registration or any query.</span></label>
@@ -328,18 +307,45 @@
     </div>
   </section>
 
+  <section class="band band--navy band--wave" id="awards" aria-labelledby="awards-h">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow reveal">Swasthya Sangam Awards</p>
+          <h2 id="awards-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Know someone who deserves to be seen?</h2>
+          <p class="lead reveal" style="--i:2; color: var(--muted); margin-bottom: 2rem">Nominations are open for hospitals, doctors and health brands across Maharashtra. <span data-award-count hidden></span></p>
+          <div class="btn-row reveal" style="--i:3">
+            <a class="btn btn--gold" href="awards.html#nominate" data-track="nominate_band">Start a nomination<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--outline-inv" href="awards.html#categories" data-track="categories_band">See award categories</a>
+          </div>
+          <ul class="seglist" id="at-segments" aria-label="Award segments"></ul>
+        </div>
+        <figure class="photo photo--ratio reveal" style="--i:2"><img src="img/awards-trophy-1000.webp" srcset="img/awards-trophy-560.webp 560w, img/awards-trophy-1000.webp 1000w" sizes="(min-width: 900px) 560px, 100vw" width="1000" height="667" alt="A gold and crystal trophy on a navy podium with an Indian dignitary applauding on stage" loading="lazy" decoding="async" data-source="ai-generated" data-subject="award trophy"></figure>
+      </div>
+    </div>
+  </section>
+
   <section class="band band--white" id="partner" aria-labelledby="partner-h" data-form-section>
     <div class="wrap">
       <div class="split split--img-left split--wide-text">
         <div>
           <p class="eyebrow reveal">Partner with us</p>
-          <h2 id="partner-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Partner with Swasthya Sangam</h2>
-          <p class="lead muted reveal" style="--i:2">Reach the people who decide, buy and recommend in healthcare, with visibility across Maharashtra Times and Times Internet platforms, speaking slots, leads and a presence on the ground.</p>
+          <h2 id="partner-h" class="reveal" style="--i:1; margin-block: 1rem 1.25rem">Be Part of the Sangam</h2>
+          <p class="lead muted reveal" style="--i:2">Reach the people who decide, buy and recommend in healthcare.</p>
+          <h3 class="sub reveal">Ways to partner</h3>
           <ul class="pgrid" data-stagger>
             <li>Title and Presenting Partner</li><li>Associate and Category Partners</li><li>Expo stall</li>
             <li>Masterclass Partner</li><li>Awards Category Partner</li><li>Knowledge Partner</li>
           </ul>
-          <p class="form__note reveal">Prefer to talk? <a class="link" href="tel:+919971129087" data-track="call_partnerships">Call Deepika Pawar, +91 9971129087</a></p>
+          <h3 class="sub reveal">Benefits</h3>
+          <ul class="checklist" data-stagger>
+            <li>Brand visibility across Maharashtra Times and Times Internet platforms</li>
+            <li>Direct access to decision-makers</li>
+            <li>Speaking slots</li>
+            <li>Lead generation</li>
+            <li>On-ground presence</li>
+          </ul>
+                    <p class="form__note reveal" style="margin-top: .75rem">Deepika Pawar, <a class="link" href="tel:+919971129087">+91 9971129087</a></p>
         </div>
         <!-- TODO(backend): partnership enquiry posts here (source = partner-section). -->
         <div class="formcard reveal" style="--i:2">
@@ -354,8 +360,8 @@
             <div class="field"><label for="p-email">Work email</label>
               <input id="p-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="p-email-err">
               <p class="err" id="p-email-err" hidden>Write an email address with an @, like name@company.com.</p></div>
-            <div class="field"><label for="p-mobile">Mobile</label>
-              <input id="p-mobile" name="mobile" type="tel" autocomplete="tel-national" inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10-digit mobile number" required aria-describedby="p-mobile-err">
+            <div class="field"><label for="p-mobile">Phone number</label>
+              <div class="phone"><span aria-hidden="true">+91</span><input id="p-mobile" name="mobile" type="tel" autocomplete="tel-national" inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10-digit mobile number" required aria-describedby="p-mobile-err"></div>
               <p class="err" id="p-mobile-err" hidden>Write a 10-digit mobile number that starts with 6, 7, 8 or 9.</p></div>
             <div class="field full"><label for="p-interest">Type of partnership</label>
               <select id="p-interest" name="interest" required aria-describedby="p-interest-err" data-summary-label="Interest">
@@ -386,7 +392,7 @@
       <div class="split split--wide-text" style="align-items:start">
         <div class="reveal">
           <p class="eyebrow">Frequently asked</p>
-          <h2 id="faq-h" style="margin-block: 1rem 1.25rem">Questions about Swasthya Sangam</h2>
+          <h2 id="faq-h" style="margin-block: 1rem 1.25rem">Frequently asked questions</h2>
           <p class="lead muted">Cannot find your answer? <a class="link" href="#contact">Contact the team</a></p>
         </div>
         <!-- keep this text identical to the FAQPage JSON-LD in the head (scripts/check-seo-sync.mjs checks it) -->
@@ -413,6 +419,7 @@
     </div>
     <div class="touch">
       <h3 class="touch__h">Get in touch</h3>
+      <p class="touch__sub">Reach the right team for your query.</p>
       <ul class="touch__rows" data-stagger>
         <li class="touch__row">
           <div class="touch__title"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg><span>Sponsorship</span></div>
@@ -437,8 +444,7 @@
       <p>Presented by Maharashtra Times and Times Internet Languages Live.</p>
     </div>
     <div class="legal">
-      <span>&copy; Times Internet Limited &nbsp; <a href="https://timeslanguages.in/privacypolicy">Privacy Policy</a> <a href="https://timeslanguages.in/termsandconditions">Terms and Conditions</a> <a href="https://timeslanguages.in/cancellationpolicy">Cancellation Policy</a></span>
-      <details><summary>Photographs via Pexels and Unsplash</summary><p>Stand-in photographs from Pexels and Unsplash, used under their free licences. The content team replaces them with photographs from Maharashtra Times events.</p></details>
+      <span>&copy; 2027 Times Internet Limited &nbsp; <a href="https://timeslanguages.in/privacypolicy">Privacy Policy</a> <a href="https://timeslanguages.in/termsandconditions">Terms and Conditions</a> <a href="https://timeslanguages.in/cancellationpolicy">Cancellation Policy</a></span>
     </div>
   </div>
 </footer>

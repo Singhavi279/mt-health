@@ -9,6 +9,7 @@ const SS_CONFIG = {
   // confirmation pop-up and sends nothing. Set it and the same pop-up opens only after the server answers 2xx.
   formEndpoint: '',
 
+
   // Read-only Eventhub endpoints copied from the earlier mh-health site (award categories, plan prices).
   // The event key still ends in _2026: it is the server's identifier, not the event year (the API names the
   // event "Maharashtra Times Swasthya Sangam 2027"). TODO(backend): confirm key and merchant code are final.
@@ -57,13 +58,23 @@ addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
 // highlight the nav link of the section on screen
-const spyLinks = $$('.nav a[href^="#"]');
+const spyLinks = $$('.nav a[href^="#"], .toc a[href^="#"]');
 if (spyLinks.length && 'IntersectionObserver' in window) {
-  const map = new Map(spyLinks.map(a => [a.getAttribute('href').slice(1), a]));
+  const map = new Map();                                               // section id -> every link that points at it
+  spyLinks.forEach(a => { const id = a.getAttribute('href').slice(1); if (!map.has(id)) map.set(id, []); map.get(id).push(a); });
   const spy = new IntersectionObserver(entries => {
-    entries.forEach(en => { if (en.isIntersecting) { spyLinks.forEach(a => a.classList.remove('is-active')); map.get(en.target.id)?.classList.add('is-active'); } });
+    entries.forEach(en => { if (en.isIntersecting) { spyLinks.forEach(a => a.classList.remove('is-active')); map.get(en.target.id)?.forEach(a => a.classList.add('is-active')); } });
   }, { rootMargin: '-45% 0px -50% 0px' });
   map.forEach((_, id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
+}
+
+// document pages: the contents list is always open on desktop, folded on phones and closes after a tap
+const toc = $('.toc');
+if (toc) {
+  const wide = matchMedia('(min-width: 1000px)');
+  const sync = () => { toc.open = wide.matches; };
+  sync(); wide.addEventListener('change', sync);
+  toc.addEventListener('click', e => { if (e.target.closest('a') && !wide.matches) toc.open = false; });
 }
 
 /* ------------------------------------------------------------------ reveal on scroll, staggered */
@@ -181,7 +192,8 @@ $('#ss-thanks')?.addEventListener('click', e => { if (e.target === e.currentTarg
 
 /* ------------------------------------------------------------------ award categories (Eventhub API) */
 let segmentsPromise = null;
-const loadSegments = () => segmentsPromise || (segmentsPromise = getJSON(SS_CONFIG.categoriesApi).then(j => {
+const withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
+const loadSegments = () => segmentsPromise || (segmentsPromise = withTimeout(getJSON(SS_CONFIG.categoriesApi), 8000).then(j => {
   const segs = j && j.data && j.data.segments;
   if (!segs || !segs.length) throw new Error('no data');
   return segs.slice().sort(byOrder);
@@ -199,10 +211,16 @@ if (apiStats.length || segBox || segSelect) {
       watchCounter(n);
     });
     $$('[data-award-count]').forEach(n => { n.textContent = `${total} award categories across ${segs.length} segments`; n.hidden = false; });
+    const atList = $('#at-segments');                                   // Summit page: the five segments with their category counts
+    if (atList) segs.forEach(s => { const n = (s.children || []).length; const li = el('li'); li.append(el('span', '', s.name), el('small', '', `${n} ${n === 1 ? 'category' : 'categories'}`)); atList.append(li); });
     if (segSelect) segs.forEach(s => segSelect.append(Object.assign(el('option', '', s.name), { value: s.name })));
     if (segBox) renderSegments(segs, total);
   }).catch(() => {
-    if (segBox) { segBox.textContent = ''; segBox.append(el('p', 'api-note', 'Award categories could not be loaded right now. Refresh the page or try again shortly.')); }
+    if (segBox) {
+      segBox.textContent = ''; const p = el('p', 'api-note', 'Award categories coming soon. Want to know more? Contact Simran Singh: ');
+      const t = el('a', 'link', '+91 7838788554'); t.href = 'tel:+917838788554'; p.append(t); segBox.append(p);
+      $$('[data-award-count]').forEach(n => { n.hidden = true; }); const cs = $('#cat-search'); if (cs) cs.closest('.finder').hidden = true;
+    }
   });
 }
 
@@ -255,6 +273,7 @@ $$('[data-pcode]').forEach(card => {
     const list = d.couponList || [], c = list.find(x => x.default_coupon) || list[0];
     const listPrice = d.product_amount_without_gst, price = c ? c.final_billing_amount_without_gst : listPrice;
     box.textContent = '';
+    const badge = $('.plan__badge', card); if (badge) badge.hidden = !(listPrice > price);   // Early Bird Offer only while discounted
     if (listPrice > price) { const del = el('del', '', inr(listPrice)); del.setAttribute('aria-label', 'Original price ' + inr(listPrice)); box.append(del); }
     box.append(el('strong', '', inr(price)), el('small', '', '+ GST'));
     if (opt) opt.textContent = `${opt.dataset.name} (${inr(price)} + GST)`;
