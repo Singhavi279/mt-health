@@ -98,8 +98,10 @@ title / meta description / Open Graph / JSON-LD were updated.
 
 ## Cache busting
 
-- CSS and JS links carry `?v=20261126b`. Change the value on every release so browsers fetch the new files straight away (GitHub Pages lets browsers cache assets for 10 minutes).
+- CSS and JS links carry `?v=20261126c`. Change the value on every release so browsers fetch the new files straight away (GitHub Pages lets browsers cache assets for 10 minutes).
 
 ## Full header on all desktops
 
 - The full header (links, outlined page buttons, main button) now shows from 1180px up; sizes scale down on smaller desktops instead of switching to the menu button. No links were removed. Below 1180px the menu button is used.
+
+- Mobile menu now lists exactly the desktop header items, in the same order and with the same labels (Awards page: last item is "Register now").
