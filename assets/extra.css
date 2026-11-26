@@ -189,12 +189,7 @@ section .card:has(> .efr-form)::before, .nom-dialog .nom-bar { content: ""; posi
 .ct-links { display: grid; gap: 4px; }
 
 /* header like the reference: links in the middle, two outlined buttons and one filled button on the right */
-@media (min-width: 1180px) and (max-width: 1659px) {
-  .menu { display: block; }
-  .nav-desktop { display: none; }
-  .topbar-cta .btn-ghost { display: none; }
-}
-@media (min-width: 1660px) {
+@media (min-width: 1180px) {
   .topbar-in { gap: 0; }
   .nav-desktop { margin-left: var(--sp-5); gap: 4px; }
   .nav-desktop a { font-size: .88rem; padding: 10px 13px; border-bottom: 0; border-radius: 999px; }
@@ -203,7 +198,7 @@ section .card:has(> .efr-form)::before, .nom-dialog .nom-bar { content: ""; posi
   .topbar-cta .btn-sm { min-height: 48px; padding: 10px 20px; font-size: .88rem; border-radius: 999px; }
   .topbar-cta .btn-ghost { background: #fff; border: 2px solid #c9d3df; color: var(--c-navy-900); }
 }
-@media (min-width: 1660px) { .menu { display: none; } }
+@media (min-width: 1180px) { .menu { display: none; } }
 .brand img:first-child { height: 40px; }
 
 /* header buttons and links in sentence case, solid blue main button (matches the reference) */
@@ -215,7 +210,7 @@ section .card:has(> .efr-form)::before, .nom-dialog .nom-bar { content: ""; posi
   .topbar-cta .btn-sm { font-size: 1rem; }
   .topbar-cta .btn-ghost { border-color: #c4ccd8; }
 }
-@media (min-width: 1660px) { .nav-desktop a { font-size: 1rem; padding: 10px 14px; } }
+@media (min-width: 1600px) { .nav-desktop a { font-size: 1rem; padding: 10px 14px; } }
 .topbar-cta .btn-ghost { box-shadow: none; outline: 0; }
 .topbar-cta .btn-ghost:hover { border-color: var(--c-navy-700); }
 
@@ -239,3 +234,18 @@ section .card:has(> .efr-form)::before, .nom-dialog .nom-bar { content: ""; posi
 .faq .faq-grp-body > details[open] > summary::after { content: "–"; }
 .faq .faq-grp-body > details { background: #f7fafc; }
 .faq .faq-grp-body > details[open] { background: #fff; }
+
+/* full header on every desktop width (1180px and up): sizes scale down instead of switching to the menu button */
+@media (min-width: 1180px) and (max-width: 1599px) {
+  .topbar .container { max-width: none; padding-inline: 20px; }
+  .brand img:first-child { height: 44px; }
+  .nav-desktop { margin-left: 14px; gap: 2px; }
+  .nav-desktop a { font-size: .86rem; padding: 8px 9px; }
+  .topbar-cta { gap: 8px; margin-left: auto; }
+  .topbar-cta .btn-sm { font-size: .86rem; min-height: 44px; padding: 8px 14px; border-width: 1.5px; }
+}
+@media (min-width: 1180px) and (max-width: 1379px) {
+  .nav-desktop a { font-size: .8rem; padding: 7px 7px; }
+  .topbar-cta .btn-sm { font-size: .8rem; padding: 8px 11px; }
+  .brand img:first-child { height: 40px; }
+}
