@@ -36,3 +36,8 @@ title / meta description / Open Graph / JSON-LD were updated.
 - SEO/AEO updated to match: Event JSON-LD now has `offers` for both passes (checked against the page by `scripts/check-seo-sync.mjs`), and the FAQ plus FAQPage JSON-LD gain "What is the difference between the Basic and Premium pass?". The old "ticket types coming soon" copy is gone.
 - Favicon is now the logo's emblem (figure, gold ring, leaf) on white, 64px, plus an apple-touch icon.
 - Go-live: canonical, og:url, absolute og:image and JSON-LD urls point at https://singhavi279.github.io/mt-health/. Added `robots.txt`, `sitemap.xml`, `llms.txt` (rewritten for 30 Jan 2027), `.nojekyll` and `.gitignore`. The check script now also verifies canonical equals og:url and og:image is absolute.
+
+## Unreleased: no site-level SEO files
+
+- Removed `robots.txt`, `sitemap.xml` and `llms.txt`: after editorial approval the page is hosted at https://timeslanguages.in/mthealth/, and timeslanguages.in already serves these files. `.nojekyll` stays for the GitHub Pages MVP.
+- At go-live only the base URL changes (canonical, og:url, og:image, Event JSON-LD urls). All page links, images, fonts and scripts are relative, so the page works from the `/mthealth/` sub-path as is. The only root-absolute paths are the three placeholder form actions (`/api/TODO-backend-...`), which the backend team replaces.
