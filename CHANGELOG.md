@@ -95,3 +95,7 @@ title / meta description / Open Graph / JSON-LD were updated.
 - Summit hero: Register Now and Partner Now. Awards hero: Enquire Now and Nominate Now (new tab); plan cards use Enquire now. "Award Categories" button removed from the Awards hero.
 - Awards FAQ: each of the five groups is an accordion (first two open), questions inside stay accordions.
 - Contact: phone above email for every person.
+
+## Cache busting
+
+- CSS and JS links carry `?v=20261126a`. Change the value on every release so browsers fetch the new files straight away (GitHub Pages lets browsers cache assets for 10 minutes).
